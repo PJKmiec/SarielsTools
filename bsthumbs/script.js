@@ -40,10 +40,6 @@ $(document).ready(function() {
     }
   });
 
-
-  onClick='if(document.getElementById(\"image_".$i."\").value==\"1\"){this.className = \"selected\"; document.getElementById(\"image_".$i."\").value=\"0\"; add_pic(\"".$big."\", \"".$thumb."\");}else{this.className = \"thumb\"; document.getElementById(\"image_".$i."\").value=\"1\"; rem_pic(\"".$big."\", \"".$thumb."\");}'
-
-
 function add_pic(big, thumb){
   $('#finalcode').val($('#finalcode').val() + '[URL=' + big + '][img]' + thumb + '[/img][/URL] ');
 }

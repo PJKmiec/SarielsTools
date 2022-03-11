@@ -1,4 +1,6 @@
 <?php
+$maindomain = "http://www.brickshelf.com";
+
 function open_page($url)
 {
 	$contents = file_get_contents($url, 200);
@@ -63,25 +65,26 @@ function spitout($page)
 ";
 }
 
-$gallery = trim($_POST['gallery']);
-$url = $gallery;
-
-$maindomain = "http://www.brickshelf.com";
-
-if (!$gallery)
+if (!isset($_POST['gallery']))
 	echo 'Nie podano adresu galerii.';
 else
-	{
-		$page = open_page($url);
+		{
+			$url = trim(strip_tags($_POST['gallery']));
+			$page = open_page($url);
 
-		if (substr_count($page, "&n=48") > 0)
-			$page = $page.open_page($url."&n=48");
+				if (substr_count($page, "public") > 0)
+				{
+					echo "<span class='text-danger'>WARNING: The gallery you specified is not yet public.</span><br />Unfortunately this tool is unable
+					to log into the Brickshelf for you. You'll have to wait until this Brickshelf gallery becomes public.";
+				}
+				else
+				{
+					if (substr_count($page, "&n=48") > 0)
+						$page = $page.open_page($url."&n=48");
 
-		if (substr_count($page, "&n=96") > 0)
-			$page = $page.open_page($url."&n=96");
-
-		spitout($page);
-	}
+					spitout($page);
+				}
+		}
 
 ?>
 </div>
