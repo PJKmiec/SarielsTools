@@ -28,21 +28,13 @@
 	<div class="w-100 d-flex justify-content-center">
 
 		<form name="stats" id="mainForm" action="" method="POST" class="form-inline">
-			Your Brickshelf username (not case sensitive) or gallery number:
-      <input type="text" id="m" name="m" maxlegth="32" class="form-control mx-3" onBlur="this.value=this.value.toLowerCase();"
-
-      <?PHP
-      // scan subfolders
-      if (isset($_GET['g'])) {
-        echo ' value="'.trim(strip_tags($_GET['g'])).'"';
-      }
-      ?>
-
-      >
+			Brickshelf username (not case sensitive) or gallery number:
+      <input type="text" id="m" name="m" maxlegth="32" class="form-control mx-3" onBlur="this.value=this.value.toLowerCase();">
 			<input type="submit" class="btn btn-primary text-uppercase" name="sub" id="sub" value="SHOW STATS">
 		</form>
 
 	</div>
+  <span class="text-muted small">For performance reasons the stats are limited to scanning up to 96 items per folder.</span>
 
 	<div id="container" style="width: 780px; margin: 0 auto; margin-top: 40px;">
 
@@ -51,7 +43,7 @@
 
     <?php
     for ($i = 1; $i <= 96; $i++) {
-        echo '<div id="msg'.$i.'"></div>';
+        echo '<div id="msg'.$i.'" class="msgbox"></div>';
     }
     ?>
 

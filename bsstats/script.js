@@ -1,12 +1,25 @@
 $(document).ready(function() {
+  let urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.has('g')) {
+    let param = urlParams.get('g');
+    $('#m').val(param);
+    doAnalytics();
+  }
+
+
   $('#mainForm').submit(function(e) {
-    $('#headline').html("<img src='img/loading.gif' width='16' height='16' alt='' border='' style='vertical-align: middle;'> Scanning...");
-    clearAll();
-    requestHttp('php/prescan.php?m=' + $('#m').val(), 'headline', 'Scanning gallery...', 'Scan complete, ', ' folders found.');
-    $('#sub').val('Please wait...').prop('disabled', true);
+    doAnalytics();
   	e.preventDefault();
   	return false;
     });
+
+    function doAnalytics() {
+      $('#headline').html("<img src='img/loading.gif' width='16' height='16' alt='' border='' style='vertical-align: middle;'> Scanning...");
+      clearAll();
+      requestHttp('php/prescan.php?m=' + $('#m').val(), 'headline', 'Scanning gallery...', 'Scan complete, ', ' folders found.');
+      $('#sub').val('Please wait...').prop('disabled', true);
+    }
 
 // predefined variables
 var totalViews=0;
