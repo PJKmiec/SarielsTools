@@ -54,6 +54,9 @@
                   <li class="nav-item <?php isActive('thumbs') ;?>">
                     <a class="nav-link <?php isBold('thumbs') ;?>" href="http://thumbs.sariel.pl">Brickshelf Thumbnail Helper</a>
                   </li>
+                  <li class="nav-item <?php isActive('stats') ;?>">
+                    <a class="nav-link <?php isBold('stats') ;?>" href="http://stats.sariel.pl">Brickshelf Stats</a>
+                  </li>
 
                 </ul>
               </div>

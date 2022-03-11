@@ -184,6 +184,21 @@
                           </td>
                         </tr>
 
+                        <tr>
+                          <td class="text-left align-middle">
+                            <a href="http://stats.sariel.pl"><span class="material-icons align-middle mr-2">trending_up</span> Brickshelf Stats</a>
+                          </td>
+                          <td class="text-left align-middle">
+                            A statistics tool for your Brickshelf gallery.
+                          </td>
+                          <td class="align-middle">
+                            N/A
+                          </td>
+                          <td class="align-middle">
+                            <a href="http://stats.sariel.pl">stats.sariel.pl</a>
+                          </td>
+                        </tr>
+
                       </tbody>
                     </table>
                   </div>

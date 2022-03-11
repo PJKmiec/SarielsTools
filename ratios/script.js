@@ -35,7 +35,7 @@
 				 var result = "1:1";
 				 var speed = "The speed is unchanged.";
 				 var torque = "The torque is unchanged.";
-				 var rotation = "The follower gear rotates 1 time per each revolution of the driver gear.";
+				 var rotation = "The follower gear rotates 1 time per each rotation of the driver gear.";
 			 }
 			 else if (parseFloat(gear1) < parseFloat(gear2))
 			 {
@@ -44,7 +44,7 @@
 				 var ends = (round(1 / ratio) >= 2) ? "s" : "";
 				 var speed = "The speed is decreased " + ratio + " times.";
 				 var torque = "The torque is increased " + ratio + " times.";
-				 var rotation = "The follower gear rotates " + round(1 / ratio) + " time" + ends + " per each revolution of the driver gear.";
+				 var rotation = "The follower gear rotates " + round(1 / ratio) + " time" + ends + " per each rotation of the driver gear.";
 			 }
 			 else
 			 {
@@ -53,7 +53,7 @@
 				 var ends = (ratio >= 2) ? "s" : "";
 				 var speed = "The speed is increased " + ratio + " times.";
 				 var torque = "The torque is decreased " + ratio + " times.";
-				 var rotation = "The follower gear rotates " + ratio + " time" + ends + " per each revolution of the driver gear.";
+				 var rotation = "The follower gear rotates " + ratio + " time" + ends + " per each rotation of the driver gear.";
 			 }
 
 			 return [result, speed, torque, rotation];
@@ -239,33 +239,33 @@ $('#planetary').submit(function(e) {
 		if (type == 'liftarm')
 			var combinations = {'a' : '8:8',
 														'b' : '8:24 12:20 16:16 20:12 24:8',
-														'c' : '8:40 12:36 24:24 36:12 40:8',
-														'd' : '24:40 40:24',
+														'c' : '8:40 12:36 20:28 24:24 28:20 36:12 40:8',
+														'd' : '24:40 28:36 36:28 40:24',
 														'e' : '40:40',
 														'f' : '8:8',
 														'g' : '',
-														'h' : '12:24 16:20 20:16 24:12',
-														'i' : '12:40 40:12',
-														'j' : '24:40 40:24',
+														'h' : '8:28 12:24 16:20 20:16 24:12 28:8',
+														'i' : '12:40 24:28 28:24 40:12',
+														'j' : '24:40 28:40 40:28 40:24',
 														'k' : '8:24 12:20 16:16 20:12 24:8',
-														'l' : '12:24 16:20 20:16 24:12',
-														'm' : '8:36 20:24 24:20 36:8',
-														'n' : '16:40 20:36 36:20 40:16w',
+														'l' : '8:28 12:24 16:20 20:16 24:12 28:8',
+														'm' : '8:36 16:28 20:24 24:20 28:16 36:8',
+														'n' : '16:40 20:36 36:20 40:16',
 														'o' : '36:36',
-														'p' : '8:40 12:36 24:24 36:12 40:8',
-														'q' : '12:40 40:12',
+														'p' : '8:40 12:36 20:28 24:24 28:12 36:12 40:8',
+														'q' : '12:40 24:28 28:24 40:12',
 														'r' : '16:40 20:36 36:20 40:16',
 														's' : '',
 														't' : '40:40',
-														'u' : '24:40 40:24',
-														'w' : '24:40 40:24',
+														'u' : '24:40 28:36 36:28 40:24',
+														'w' : '24:40 28:40 40:28 40:24',
 														'v' : '36:36',
 														'y' : '40:40',
 														'x' : '40:40'
 													};
 		else
-			var combinations = {'a' : '8:12 12:g8',
-													  'b' : '',
+			var combinations = {'a' : '8:12 12:8',
+													  'b' : '12:28 28:12',
 														'c' : '16:40 20:36 36:20 40:16',
 														'd' : '36:40 40:36',
 														'f' : '8:8',
@@ -274,14 +274,14 @@ $('#planetary').submit(function(e) {
 														'i' : '20:40 24:36 36:24 40:20',
 														'k' : '8:24 12:20 16:16 20:12 24:8',
 													  'l' : '12:24 24:12',
-														'm' : '8:40 16:36 24:24 36:16 40:8',
+														'm' : '8:40 16:36 24:28 24:24 28:24 36:16 40:8',
 													  'n' : '24:40 40:24',
-														'o' : '8:40 12db:36 24:24 36:12 40:8',
-														'p' : '12:40 16:36 36:16 40:12',
+														'o' : '8:40 12:36 20:28 24:24 28:20 36:12 40:8',
+														'p' : '12:40 16:36 24:28 28:24 36:16 40:12',
 														'r' : '20:40 24:36 36:24 40:20',
 														's' : '36:40 40:36',
-														't' : '24:40 40:24wc',
-														'u' : '',
+														't' : '24:40 28:36 36:28 40:24',
+														'u' : '28:40 40:28',
 														'w' : '36:40 40:36',
 														'v' : '40:40'
 													};
@@ -312,7 +312,7 @@ $('#planetary').submit(function(e) {
 		var results = calculateRatio(gears[0], gears[1]);
 		var summary = '<div class="row my-2 pt-4 border-top"><div class="col-2 mx-3"><img class="align-middle" src="images/g' + gears[0] + '.png"></div>' +
 		'<div class="col-2 mx-3"><img class="align-middle" src="images/g' + gears[1] + '.png"></div>' +
-		'<div class="col d-flex flex-wrap align-items-center"><h4>Gear ratio:' + results[0] + '</h4>' + results[1] + '<br>'
+		'<div class="col d-flex flex-wrap align-items-center"><h4>' + gears[0] + ' teeth > ' + gears[1] + ' teeth, ratio:' + results[0] + '</h4>' + results[1] + '<br>'
 		+ results[2] + '<br>' + results[3] + '</div>';
 
 		$('#c-combinations').html($('#c-combinations').html() + "<br>" + summary);
