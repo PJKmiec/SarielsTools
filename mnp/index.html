@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Description" content="Monorail Network Planner">
+		<meta name="Keywords" content="Monorail Network Planner">
+		<meta name="Author" content="Sariel">
+		<title>Monorail Network Planner</title>
+		<link type="text/css" href="css/smoothness/jquery-ui-1.8.8.custom.css" rel="stylesheet" />	
+		<link type="text/css" href="style.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.8.custom.min.js"></script>	
+	<script>
+	$(function() {
+		$("ul input").val(0);
+	
+		$(window).scroll(function() {
+    $('#menu').css('top', $(this).scrollTop() + "px");
+});
+		
+		$( ".resizable" ).draggable({ grid: [ 5,5 ] });
+	
+	$('#addnew').click(function(event) {
+		var newbox = '<div class="resizable ui-widget-content" id="d' + $( "#incrementer" ).val() + '">';
+		$("#wrapper").prepend(newbox);
+		$( ".resizable" ).resizable({ grid: 5 });
+		curnum = parseInt($( "#incrementer" ).val()) + 1;
+		$( "#incrementer" ).val(curnum);
+		return false;
+	});
+	
+	$('#menu img').click(function(event) {
+		var xtitle = $(this).attr("title");
+		var newtile = '<div class="draggable" style="background-image: url(' + $(this).attr("src") + '); width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" title="' + xtitle + '">';		
+		$("#wrapper").prepend(newtile);
+		$( ".draggable" ).draggable({ grid: [ 5,5 ], });		
+		
+		var handle = "#" + xtitle;
+		var x = parseFloat($(handle).val()) + 1;
+		$(handle).val(x);
+
+	});
+	
+	$('#wrappersize').submit(function(event) {
+		var newwidth = parseInt($('#wrapper-w').val()) * 5;
+		var newheight = parseInt($('#wrapper-h').val()) * 5;
+		$('#wrapper').css("width", newwidth + "px");
+		$('#wrapper').css("height", newheight + "px");
+		return false;
+	});
+		
+		$( "#droppable" ).droppable({
+			drop: function( event, ui ) {
+				$(ui.draggable).hide();
+				var y = $(ui.draggable).attr("title");
+				var handle = "#" + y;
+				var x = parseFloat($(handle).val()) - 1;
+				$(handle).val(x);
+				
+				$(this).html( "Item deleted.");
+				
+				function resetkosza(){
+					$( "#droppable" ).html("Trash area - drag & drop items here to delete them");}
+				
+				setTimeout(function(){
+					resetkosza();
+				},800);
+			}
+		});
+	
+	});
+	</script>
+	</head>
+	<body>
+	
+	<div id="main">
+	
+		<div id="header">
+				Monorail Network Planner
+		</div>
+		
+		<div id="menu">
+			<span>
+				Toolbox:
+			</span>
+			<div>
+				Straight tracks
+				<div class="submenu">
+					<img src="images/straight-short-h.png" alt="" title="str_s"><br />
+					<img src="images/straight-long-h.png" alt="" title="str_l"><br />
+					<img src="images/straight-short-v.png" alt="" title="str_s"><br />
+					<img src="images/straight-long-v.png" alt="" title="str_l">
+				</div>
+			</div>
+			<div>
+				Ramps
+				<div class="submenu">
+					<img src="images/ramp-h-up.png" alt="" title="r_u"><br />
+					<img src="images/ramp-h-down.png" alt="" title="r_d"><br />
+					<img src="images/ramp-v-up.png" alt="" title="r_u"><br />
+					<img src="images/ramp-v-down.png" alt="" title="r_d">
+				</div>
+			</div>
+			<div>
+				Long curves
+				<div class="submenu">
+					<img src="images/long-curve-right.png" alt="" title="cur_l"><br />
+					<img src="images/long-curve-rightdown.png" alt="" title="cur_l"><br />
+					<img src="images/long-curve-left.png" alt="" title="cur_l"><br />
+					<img src="images/long-curve-leftdown.png" alt="" title="cur_l">
+				</div>
+			</div>
+			<div>
+				Short curves left
+				<div class="submenu">
+					<img src="images/short-curve-left-h1.png" alt="" title="cur_sl"><br />
+					<img src="images/short-curve-left-h2.png" alt="" title="cur_sl"><br />
+					<img src="images/short-curve-left-v1.png" alt="" title="cur_sl"><br />
+					<img src="images/short-curve-left-v2.png" alt="" title="cur_sl"><br />
+				</div>
+			</div>
+			<div>
+				Short curves right
+				<div class="submenu">
+					<img src="images/short-curve-right-h1.png" alt="" title="cur_sr"><br />
+					<img src="images/short-curve-right-h2.png" alt="" title="cur_sr"><br />
+					<img src="images/short-curve-right-v1.png" alt="" title="cur_sr"><br />
+					<img src="images/short-curve-right-v2.png" alt="" title="cur_sr"><br />
+				</div>
+			</div>
+			<div>
+				Track points left
+				<div class="submenu">
+					<img src="images/trackpoint-left-h1.png" alt="" title="tp_l"><br />
+					<img src="images/trackpoint-left-h2.png" alt="" title="tp_l"><br />
+					<img src="images/trackpoint-left-v1.png" alt="" title="tp_l"><br />
+					<img src="images/trackpoint-left-v2.png" alt="" title="tp_l">
+				</div>
+			</div>
+			<div>
+				Track points right
+				<div class="submenu">
+					<img src="images/trackpoint-right-h2.png" alt="" title="tp_r"><br />
+					<img src="images/trackpoint-right-h1.png" alt="" title="tp_r"><br />
+					<img src="images/trackpoint-right-v2.png" alt="" title="tp_r"><br />
+					<img src="images/trackpoint-right-v1.png" alt="" title="tp_r">
+				</div>
+			</div>
+			<div>
+				Monoswitches
+				<div class="submenu">
+					<img src="images/monoswitch-h1.png" alt="" title="mon_l"><br />
+					<img src="images/monoswitch-h2.png" alt="" title="mon_l"><br />
+					<img src="images/monoswitch-v1.png" alt="" title="mon_l"><br />
+					<img src="images/monoswitch-v2.png" alt="" title="mon_l"><br />
+					<img src="images/monoswitch-short-h1.png" alt="" title="mon_s"><br />
+					<img src="images/monoswitch-short-h2.png" alt="" title="mon_s"><br />
+					<img src="images/monoswitch-short-v1.png" alt="" title="mon_s"><br />
+					<img src="images/monoswitch-short-v2.png" alt="" title="mon_s"><br />
+				</div>
+			</div>
+		</div>
+		
+		<div class="smallbox">
+			<div class="header">
+				Settings:
+			</div>		
+			<div class="content">
+				<form id="wrappersize" action="">
+				Grid size: W <input type="text" size="2" value="200" id="wrapper-w"> / H <input type="text" size="2" value="100" id="wrapper-h"> studs &nbsp;&nbsp;<input type="submit" value="Change &raquo;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+				</form><br />
+				<strong>Sections counter:</strong><br /><br />
+				<ul>
+					<li>short straight tracks: <input type="text" id="str_s" value="0"></li>
+					<li>long straight tracks: <input type="text" id="str_l" value="0"></li>
+					<li>lower ramps: <input type="text" id="r_d" value="0"></li>
+					<li>upper ramps: <input type="text" id="r_u" value="0"></li>
+					<li>long curves: <input type="text" id="cur_l" value="0"></li>
+					<li>short curves left: <input type="text" id="cur_sl" value="0"></li>
+					<li>short curves right: <input type="text" id="cur_sr" value="0"></li>
+					<li>track points left: <input type="text" id="tp_l" value="0"></li>
+					<li>track points right: <input type="text" id="tp_r" value="0"></li>
+					<li>short monoswitches: <input type="text" id="mon_s" value="0"></li>
+					<li>long monoswitches: <input type="text" id="mon_l" value="0"></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="smallbox" style="width: 665px;">
+			<div class="header">
+				Help:
+			</div>		
+			<div class="content">
+				This tool was created to help you to design layouts of Monorail networks. Follow these simple steps to use it:
+				<ol>
+					<li>select a track section from a toolbox</li>
+					<li>click the desired section - it will appear in the upper left corner of the grid area</li>
+					<li>now you can simply drag the section around the grid area - it will snap to the grid</li>
+					<li>if you want to delete any section, drag it over the trash area below and let it go</li>
+					<li>you can adjust the size of the grid area using the Settings box on the left</li>
+				</ol>
+				Works best with modern web browsers.
+			</div>
+			<div id="droppable">Trash area - drag & drop items here to delete them</div>
+		</div>
+		
+		
+		<div class="clear"></div>
+		<br />
+		
+		<div id="wrapper"></div>
+		
+		<input type="hidden" id="incrementer" value="2">
+	</body>
+</html>
+
+

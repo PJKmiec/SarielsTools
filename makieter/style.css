@@ -1,0 +1,70 @@
+body {margin: 40px; font: normal 11px/0.5cm Tahoma, Verdana, Arial;}
+
+a:active, a:link, a:visited {color: #21759b; text-decoration: none}
+a:hover {color: #333333; text-decoration: underline}
+
+#main {margin: 0 auto;}
+.ui-widget-content {background: white url('');}
+
+#header {font: bold 32px/1.0cm "Trebuchet MS", Arial, Tahoma; 
+				 color: #21759b;
+				 text-align: center;
+				 z-index: 1;
+				 position: relative;}
+
+.header {padding: 4px 10px 4px;
+				 background: #797979;
+				 border: 1px solid #dfdfdf;
+				 font: bold 16px/0.45cm Tahoma, Verdana, Arial; 
+				 color: #ffffff;
+				 margin-top: 20px;
+				 position: relative;
+				 z-index: 1;}
+
+.content {padding: 8px 10px 12px;
+					background: #ffffff;
+					border: 1px solid #dfdfdf;
+					font: normal 12px/0.45cm Tahoma, Verdana, Arial;
+					color: #777777;
+					z-index: 1;
+					position: relative;
+					-moz-border-radius-bottomleft: 7px;
+					border-bottom-left-radius: 7px;
+					-moz-border-radius-bottomright: 7px;
+					border-bottom-right-radius: 7px;}
+
+.smallbox {width: 330px;
+					 float: left;
+					 margin-right: 5px;}
+
+.clear {clear: both;}
+
+.content input {border: 1px solid #cdcdcd; color: #777777;}
+#wrapper {background: #ffffff url('images/bgcell.gif') repeat top left; height: 1000px; width: 1000px;}
+.resizable {width: 118px; height: 78px; overflow: visible; position: absolute; z-index: 2;}
+.toolbar {display: none; position: relative; top: 4px; left: 4px; width: 100px; overflow: visible; z-index: 1002;}
+.resizable:hover .toolbar {display: block;}
+.toolbar div, .icons div {float: left; width: 16px; height: 16px; margin-left: 4px; cursor: pointer;}
+.edit div {width: 16px; height: 16px; cursor: pointer; position: relative; top: 2px; left: 142px;}
+.text {position: absolute; top: 22px; left: 4px; font: normal 11px/0.5cm Tahoma, Verdana, Arial; color: #292929; display: visible;}
+.edit {display: none; z-index: 1002; position: absolute; top: 27px; left: 4px; background: #d4d4d4; border: 1px solid #8e8e8e; -moz-border-radius: 3px; border-radius: 3px; padding: 4px;}
+.edit input {font: normal 11px/0.5cm Tahoma, Verdana, Arial; color: #292929; width: 160px; height: 16px; border: 0px; background: white;}
+.colorpicker {display: none; position: absolute; top: 22px; left: 2px; width: 66px; padding: 4px 0px 4px 4px; z-index: 1002; background: #d4d4d4; border: 1px solid #8e8e8e; -moz-border-radius: 3px; border-radius: 3px;}
+.colorpicker span {display: block; float: left; width: 18px; height: 18px; margin-bottom: 4px; margin-right: 4px; -moz-border-radius: 3px; border-radius: 3px;}
+.colorpicker .cyan {background: #55ffe1;}
+.colorpicker .yellow {background: #ffe86a;}
+.colorpicker .green {background: #55ff61;}
+.colorpicker .blue {background: #5599ff;}
+.colorpicker .red {background: #ff7070;}
+.colorpicker .pink {background: #ff70b3;}
+.colorpicker .brown {background: #a79584;}
+.colorpicker .violet {background: #c291ff;}
+.colorpicker .orange {background: #ffb974;}
+.colorpicker .white {background: #ffffff;}
+
+#railroad img {vertical-align: middle; border: 1px solid #cdcdcd; cursor: pointer;}
+#railroad img:hover {border-color: #333333;}
+.draggable, .draggableres {width: 20px; height: 20px; position: absolute; z-index: 1002;}
+.draggable:hover, .draggableres:hover {background-color: #ffffff;}
+
+#droppable {width: 310px; height: 20px; position: absolute; top: 158px; left: -2px; background: #797979; border: 1px solid #dfdfdf; color: #d2d2d2; padding: 10px; -moz-border-radius: 3px; border-radius: 3px; z-index: 1;}

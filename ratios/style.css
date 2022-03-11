@@ -1,0 +1,16 @@
+.red {color: red;}
+.blue {color: blue;}
+
+#c-liftarms {width: 282px; height: 270px; margin-top: 10px;}
+#c-liftarms .liftarm {width: 47px; height: 45px; float: left; background: transparent url('images/coupler-liftarm.png') no-repeat top center; cursor: pointer;}
+#c-liftarms .liftarm:hover {background-position: 0px -90px;}
+#c-liftarms .input, #c-liftarms .input:hover {background-position: 0px -135px; cursor: default;}
+#c-liftarms .inactive, #c-liftarms .inactive:hover {background-position: 0px -180px; cursor: default;}
+#c-liftarms .active, #c-liftarms .active:hover {background-position: 0px -45px; cursor: default;}
+#c-bricks {width: 276px; height: 330px; display: none;}
+#c-bricks .brick {width: 46px; height: 55px; float: left; background: transparent url('images/coupler-brick.png') no-repeat top center; cursor: pointer;}
+#c-bricks .brick:hover {background-position: 0px -110px;}
+#c-bricks .input, #c-bricks .input:hover {background-position: 0px -165px; cursor: default;}
+#c-bricks .top, #c-bricks .top:hover {background-position: 0px -275px; cursor: default;}
+#c-bricks .inactive, #c-bricks .inactive:hover {background-position: 0px -220px; cursor: default;}
+#c-bricks .active, #c-bricks .active:hover {background-position: 0px -55px; cursor: default;}

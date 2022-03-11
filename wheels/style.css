@@ -1,0 +1,9 @@
+.sortable {cursor: pointer;}
+.sortable:hover {background: #4e545b;}
+tr td {text-align: center; position: relative;}
+tr td img {display: block; margin: 0 auto; width: 150px; height: 150px; position: relative; z-index: 101;}
+tr td span img {width: 80px; height: auto; border: 2px solid #797979;}
+tr td span {display: block; float: left; height: 150px; position: absolute; top: 50px; left: 0px; opacity: 0; filter: alpha(opacity=0); z-index: 100;}
+tr td span:nth-child(2)	{left: 45px;}
+tr td span p {display: none; margin: 0px; position: absolute; top: 75px; left: -2px; width: 82px; border: 2px solid #797979; background: #ffffff;}
+tr td span p img {border: 0;}

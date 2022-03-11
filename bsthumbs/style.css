@@ -1,0 +1,125 @@
+body {background: #f3f3f3; 
+			padding: 20px;}
+
+a:active, a:link, a:visited {color: #21759b; text-decoration: none}
+a:hover {color: #333333; text-decoration: underline}
+
+#main {width: 999px; 
+			 margin: 0 auto;}
+
+#header {font: bold 32px/1.0cm "Trebuchet MS", Arial, Tahoma; 
+				 color: #21759b;
+				 text-align: center;}
+
+.header {width: 979px;
+				 padding: 4px 10px 4px;
+				 background: #797979;
+				 border: 1px solid #dfdfdf;
+				 font: bold 16px/0.45cm Tahoma, Verdana, Arial; 
+				 color: #ffffff;
+				 margin-top: 20px;
+				 position: relative;}
+
+.header img {border: 0px;
+					   width: 100px;
+					   height: 100px;
+						 vertical-align: middle;
+						 position: relative;
+						 left: -6px;}
+
+.content {width: 979px;
+					padding: 8px 10px 10px;
+					background: #ffffff;
+					border: 1px solid #dfdfdf;
+					font: normal 12px/0.45cm Tahoma, Verdana, Arial;
+					color: #777777;}
+
+.content p {text-align: center;
+						margin: 0px;}
+
+.content .thumb {border: 1px solid #ffffff;
+								 margin: 2px;
+								 filter:alpha(opacity=50);-moz-opacity:.5;opacity:.5;}
+
+.content .thumb:hover {border: 1px solid #aaaaaa;
+											 filter:alpha(opacity=100);-moz-opacity:1.0;opacity:1.0;}
+
+.content .selected {border: 1px solid #aaaaaa;
+										margin: 2px;
+										filter:alpha(opacity=100);-moz-opacity:1.0;opacity:1.0;}
+
+.content input {background: #ffffff;
+								border: 1px solid #c5c5c5;
+								font: normal 12px/0.45cm Tahoma, Verdana, Arial;
+								color: #777777;}
+
+.content .submit {background: #797979;
+									border: 1px solid #797979;
+									font: bold 12px/0.45cm Tahoma, Verdana, Arial;
+									color: #ffffff;}
+
+.weights {width: 999px;
+					background: transparent;
+					border: 0px;
+					position: relative;}
+
+.weights div {width: 87px; 
+						  height: 20px; 
+						  padding: 3px 5px 3px;
+						  background: #ffffff;
+						  border: 1px solid #dfdfdf;
+							text-align: center;
+							font: normal 14px/0.5cm Tahoma, Verdana, Arial;
+							color: #777777;
+							position: relative;
+							left: 110px;
+							float: left;}
+
+.row {border: 1px solid #dfdfdf;
+			background: #ffffff;
+			color: #777777;
+			height: 118px;
+			width: 999px;
+			padding: 0px;
+			clear: both;
+			position: relative;
+			overflow: hidden}
+			
+.row:hover {border: 1px solid #aaaaaa;
+						background: #eaf2fa;
+						color: #333333;}
+
+.row img {border: 0px;
+					width: 100px;
+					height: 100px;}
+
+.row span {display: block;
+					 border: 0px;
+					 background: #21759b;
+					 position: absolute;
+					 left: 0px;
+					 text-align: center;
+					 font: normal 12px/0.5cm Tahoma, Verdana, Arial;
+					 color: #ffffff;}
+
+.row div {width: 93px; 
+					height: 98px; 
+					padding: 10px 2px 10px;
+					background: transparent;
+					border: 0px;
+					text-align: center;
+					font: normal 11px/0.5cm Tahoma, Verdana, Arial;
+					position: relative;
+					left: 110px;
+					float: left;}
+
+#footer {padding: 30px 0px 0px;
+				 text-align: center;
+				 border-top: 1px solid #dfdfdf;}
+
+#footer img {border: 0px;
+						 margin: 0px 20px 0px;
+						 width: 83px;
+						 height: 31px;}
+
+#output {margin-top: 10px;}

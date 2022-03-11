@@ -1,0 +1,61 @@
+body {margin: 40px; font: normal 12px/0.5cm Tahoma, Verdana, Arial;}
+ul {margin: 0px;}
+ul, ol {margin-left: 15px; padding-left: 15px;}
+ul input {background: transparent; border: 0px !important; width: 20px; font: bold 12px/0.5cm Tahoma, Verdana, Arial;}
+
+a:active, a:link, a:visited {color: #21759b; text-decoration: none;}
+a:hover {color: #333333; text-decoration: underline;}
+
+#main {margin: 0 auto; width: 1010px;}
+.ui-widget-content {background: white url('');}
+
+#header {font: bold 32px/1.0cm "Trebuchet MS", Arial, Tahoma; 
+				 color: #21759b;
+				 text-align: center;
+				 z-index: 1;
+				 position: relative;}
+
+#menu {position: absolute; top: 0px; z-index: 1003; width: 998px; background: #797979; border: 1px solid #dfdfdf; font: normal 14px/0.45cm Tahoma, Verdana, Arial; color: #ffffff;}
+#menu span {display: block; font-weight: bold; float: left; padding: 6px 10px 6px; border-right: 1px solid #b1b1b1;}
+#menu div {float: left; padding: 6px 10px 6px; border-right: 1px solid #b1b1b1; position: relative;}
+#menu div:hover {background: #21759b; cursor: pointer;}
+#menu .submenu {display: none; position: absolute; top: 29px; left: -1px; background: #ffffff; border: 1px solid #b1b1b1;}
+#menu .submenu:hover  {background: #ffffff; border: 1px solid #21759b;}
+#menu div:hover .submenu {display: block;}
+
+.header {padding: 4px 10px 4px;
+				 background: #797979;
+				 border: 1px solid #dfdfdf;
+				 font: bold 16px/0.45cm Tahoma, Verdana, Arial; 
+				 color: #ffffff;
+				 margin-top: 20px;
+				 position: relative;
+				 z-index: 1;}
+
+.content {padding: 8px 10px 12px;
+					background: #ffffff;
+					border: 1px solid #dfdfdf;
+					font: normal 12px/0.45cm Tahoma, Verdana, Arial;
+					color: #777777;
+					z-index: 1;
+					position: relative;
+					-moz-border-radius-bottomleft: 7px;
+					border-bottom-left-radius: 7px;
+					-moz-border-radius-bottomright: 7px;
+					border-bottom-right-radius: 7px;}
+
+.smallbox {width: 330px;
+					 float: left;
+					 margin-right: 5px;}
+
+.clear {clear: both;}
+
+.content input {border: 1px solid #cdcdcd; color: #777777;}
+#wrapper {background: #ffffff url('images/bgcell.gif') repeat top left; height: 501px; width: 1001px;}
+
+#railroad img {vertical-align: middle; border: 1px solid #cdcdcd; cursor: pointer;}
+#railroad img:hover {border-color: #333333;}
+.draggable {position: absolute; z-index: 1002;}
+.draggable:hover {background-color: #ffffff;}
+
+#droppable {width: 577px; height: 20px; margin-top: 6px;  background: #797979; border: 1px solid #dfdfdf; color: #d2d2d2; padding: 43px; -moz-border-radius: 3px; border-radius: 3px; z-index: 1;}
