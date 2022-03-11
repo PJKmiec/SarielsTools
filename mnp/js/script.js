@@ -49,7 +49,7 @@ $(document).ready(function() {
 
 				setTimeout(function(){
 					resetkosza();
-				},800);
+				},1000);
 			}
 		});
 

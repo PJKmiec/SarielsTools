@@ -1,12 +1,10 @@
-body {margin: 40px; font: normal 11px/0.5cm Tahoma, Verdana, Arial;}
-
 a:active, a:link, a:visited {color: #21759b; text-decoration: none}
 a:hover {color: #333333; text-decoration: underline}
 
 #main {margin: 0 auto;}
 .ui-widget-content {background: white url('');}
 
-#header {font: bold 32px/1.0cm "Trebuchet MS", Arial, Tahoma; 
+#header {font: bold 32px/1.0cm "Trebuchet MS", Arial, Tahoma;
 				 color: #21759b;
 				 text-align: center;
 				 z-index: 1;
@@ -15,7 +13,7 @@ a:hover {color: #333333; text-decoration: underline}
 .header {padding: 4px 10px 4px;
 				 background: #797979;
 				 border: 1px solid #dfdfdf;
-				 font: bold 16px/0.45cm Tahoma, Verdana, Arial; 
+				 font: bold 16px/0.45cm Tahoma, Verdana, Arial;
 				 color: #ffffff;
 				 margin-top: 20px;
 				 position: relative;
@@ -41,7 +39,7 @@ a:hover {color: #333333; text-decoration: underline}
 
 .content input {border: 1px solid #cdcdcd; color: #777777;}
 #wrapper {background: #ffffff url('images/bgcell.gif') repeat top left; height: 1000px; width: 1000px;}
-.resizable {width: 118px; height: 78px; overflow: visible; position: absolute; z-index: 2;}
+.resizable {width: 118px; height: 78px; overflow: visible; position: absolute !important; z-index: 2;}
 .toolbar {display: none; position: relative; top: 4px; left: 4px; width: 100px; overflow: visible; z-index: 1002;}
 .resizable:hover .toolbar {display: block;}
 .toolbar div, .icons div {float: left; width: 16px; height: 16px; margin-left: 4px; cursor: pointer;}
@@ -64,7 +62,8 @@ a:hover {color: #333333; text-decoration: underline}
 
 #railroad img {vertical-align: middle; border: 1px solid #cdcdcd; cursor: pointer;}
 #railroad img:hover {border-color: #333333;}
-.draggable, .draggableres {width: 20px; height: 20px; position: absolute; z-index: 1002;}
+.draggable, .draggableres {width: 20px; height: 20px; position: absolute !important; z-index: 1002;}
 .draggable:hover, .draggableres:hover {background-color: #ffffff;}
 
-#droppable {width: 310px; height: 20px; position: absolute; top: 158px; left: -2px; background: #797979; border: 1px solid #dfdfdf; color: #d2d2d2; padding: 10px; -moz-border-radius: 3px; border-radius: 3px; z-index: 1;}
+#droppable {width: 331px; height: 78px; position: absolute; top: 162px; left: -2px; background: #797979; border: 1px solid #dfdfdf; color: #d2d2d2;
+	padding: 10px; -moz-border-radius: 3px; border-radius: 3px; z-index: 1;}

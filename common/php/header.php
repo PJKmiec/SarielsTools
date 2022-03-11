@@ -45,8 +45,8 @@
                   <li class="nav-item <?php isActive('monorail') ;?>">
                     <a class="nav-link <?php isBold('monorail') ;?>" href="http://monorail.sariel.pl">Monorail Network Planner</a>
                   </li>
-                  <li class="nav-item <?php isActive('makieter') ;?>">
-                    <a class="nav-link <?php isBold('makieter') ;?>" href="http://town.sariel.pl">Town Plot Planner</a>
+                  <li class="nav-item <?php isActive('town') ;?>">
+                    <a class="nav-link <?php isBold('town') ;?>" href="http://town.sariel.pl">Town Plot Planner</a>
                   </li>
                   <li class="nav-item <?php isActive('bs') ;?>">
                     <a class="nav-link <?php isBold('bs') ;?>" href="http://bs.sariel.pl">Bricksafe Thumbnail Helper</a>
