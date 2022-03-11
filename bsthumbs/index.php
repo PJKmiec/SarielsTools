@@ -16,10 +16,8 @@
    <div class="row">
      <div class="col">
        <div class="card card-small mb-4">
-         <div class="card-header border-bottom">
-           <div class="form-check form-check-inline">
-             <h6 class="m-0">Your gallery's URL address:</h6>
-           </div>
+         <div class="card-header border-bottom text-center">
+            <h6 class="m-0">Your gallery's URL address:</h6>
          </div>
          <div class="card-body p-3 text-center">
 
@@ -65,7 +63,6 @@
 <?php
 require_once('../common/php/footerScripts.php');
 ?>
-<script src="../common/scripts/fslightbox.js"></script>
 <script src="script.js"></script>
 </div>
 
