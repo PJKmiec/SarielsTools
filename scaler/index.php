@@ -3,7 +3,7 @@
   define("TITLE", "LEGO Model Scaler");
   require_once('../common/php/header.php');
  ?>
- <link rel="stylesheet" href="style.css?ver=1">
+ <link rel="stylesheet" href="style.css?ver=2">
 
           <div class="main-content-container container-fluid px-0">
             <!-- Page Header -->
@@ -343,8 +343,8 @@
   require_once('../common/php/footerScripts.php');
   ?>
   <script src="raphael.packed.js"></script>
-  <script src="script.js"></script>
   <script src="jquery.cookie.js"></script>
+  <script src="script.js?v=1"></script>
 
   </div>
 

@@ -1,0 +1,10 @@
+@media (min-width: 100px) {
+  .collapse {display: none !important;}
+  .navbar-collapse {display: none !important; background-color: #ffffff; padding-left: 10px;}
+  .show {display: block !important;}
+}
+
+@media (min-width: 992px) {
+  .navbar-toggler {display: none !important;}
+  .navbar-collapse {background: transparent;}
+}

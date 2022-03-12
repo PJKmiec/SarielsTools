@@ -115,7 +115,6 @@ $(document).ready(function(){
 			else
 				$.cookie("modelscalerlastused", $("#blueprint").val() + '^', { expires: 60, path: '/', domain: 'scaler.sariel.pl' });
 		}
-
 	});
 
   // reset to original size
@@ -269,7 +268,7 @@ $(document).ready(function(){
 	// read last images from a cookie
 	$('#blueprint').focus(function(event) {
 		if ($.cookie("modelscalerlastused") != undefined){
-			$('#lastused').html('<strong>The last 5 images used</strong> (click & hit Load):');
+			$('#lastused').html('<div style="font-weight: bold; margon-bottom: 3px;">The last 5 images used</strong> (click to load):</div>');
 			var lastimage =  $.cookie("modelscalerlastused").split('^');
 			for (var i=0; i < 5; i++){
 				if (lastimage[i] && lastimage[i] != 'undefined')
@@ -280,11 +279,11 @@ $(document).ready(function(){
 	});
 
 	// get link from last images list
-	$('#lastused a').on('click', function() {
-		var imagelink = this.id;
-		$('#blueprint').val($('#' + imagelink).attr("href"));
+  $(document).on("click", "#lastused a" , function() {
+		$('#blueprint').val($(this).attr("href"));
+    $('#blueprint-submit').trigger("click");
 		return false;
-	});
+  });
 
 	// hide last images list on clicking elsewhere
 	$("body").click(function (evt) {

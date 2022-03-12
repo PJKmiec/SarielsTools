@@ -6,42 +6,6 @@ $(document).ready(function(){
 	var x = null;
 	var xs = 1;
 
-$('.form-inline input').keydown(function(event) {
-				if ( event.keyCode == 46 || event.keyCode == 96 || event.keyCode == 8 || event.keyCode > 112 ) {
-
-				}
-				else {
-					if (event.keyCode < 95) {
-						if (event.keyCode < 48 || event.keyCode > 57 ) {
-							event.preventDefault();
-						}
-					}
-					else {
-						if (event.keyCode < 97 || event.keyCode > 105 ) {
-							event.preventDefault();
-						}
-					}
-				}
-			});
-
-$('.form-inline input').keydown(function(event) {
-				if ( event.keyCode == 46 || event.keyCode == 96 || event.keyCode == 8 || event.keyCode > 112 ) {
-
-				}
-				else {
-					if (event.keyCode < 95) {
-						if (event.keyCode < 48 || event.keyCode > 57 ) {
-							event.preventDefault();
-						}
-					}
-					else {
-						if (event.keyCode < 97 || event.keyCode > 105 ) {
-							event.preventDefault();
-						}
-					}
-				}
-			});
-
 function convert() {
 	if (f == 's'){
 		x = 20 * v;

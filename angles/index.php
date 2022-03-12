@@ -149,7 +149,7 @@
         <?php
           require_once('../common/php/footerScripts.php');
          ?>
-         <script src="../common/scripts/fslightbox.js"></script>
+         <script src="http://tools.sariel.pl/common/scripts/fslightbox.js"></script>
          <script src="script.js"></script>
     </div>
 

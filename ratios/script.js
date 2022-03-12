@@ -164,7 +164,7 @@ $('#planetary').submit(function(e) {
 			var params = $("#motorPicker").val().split("/");
 			var hmm = $("#motorNumber").val();
 
-			var speed = round(params[0] / ratio * hmm);
+			var speed = round(params[0] / ratio);
 			var torque = round(params[1] * ratio * hmm);
 			$("#output").html('Theoretical output at 9V: speed ' + speed + ' RPM / torque '+ torque +' N.cm');
 		} else {

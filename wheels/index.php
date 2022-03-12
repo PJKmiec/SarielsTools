@@ -19,7 +19,7 @@
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span></button> Now available as free Android app:
               <a href='https://play.google.com/store/apps/details?id=pl.sariel.legowheelstable&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-              target='_blank'><img alt='Get it on Google Play' src='../common/en_badge_web_generic.png' width="168" height="50" class="ml-3" /></a>
+              target='_blank'><img alt='Get it on Google Play' src='http://tools.sariel.pl/common/en_badge_web_generic.png' width="168" height="50" class="ml-3" /></a>
             </div>
 
             <!-- Default Light Table -->
