@@ -7,11 +7,16 @@
 
           <div class="main-content-container container-fluid px-0">
             <!-- Page Header -->
-            <div class="page-header row no-gutters py-4 px-4">
-              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+
+            <div class="page-header row no-gutters p-4 align-items-center justify-content-between">
+              <div class="text-center text-sm-left mb-0">
                 <h3 class="page-title text-info">
                   <span class="material-icons align-middle" style="font-size: 3rem">aspect_ratio</span> Model Scaler
                 </h3>
+              </div>
+              <div class="text-right">
+                <button id="multicollapse" data-toggle="collapse" data-target=".collapse"
+                class="btn btn-outline-primary btn-pill text-uppercase">collapse all boxes</a>
               </div>
             </div>
             <!-- End Page Header -->
@@ -34,7 +39,7 @@
                       <li>known dimension - one dimension of your model that you know (e.g. wheel diameter or track's width)
                     </ul>
                     <div class="text-center border-top pt-2">Need help? Try watching this:<br><br>
-                      <a href="https://youtu.be/0rWyReGCmc0"target="_blank"
+                      <a href="https://youtu.be/0rWyReGCmc0" target="_blank"
                       class="btn btn-outline-primary btn-pill btn-lg text-uppercase">complete video tutorial</a>
                     </div>
                   </div>
@@ -344,7 +349,7 @@
   ?>
   <script src="raphael.packed.js"></script>
   <script src="jquery.cookie.js"></script>
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 
   </div>
 

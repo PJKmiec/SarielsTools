@@ -7,6 +7,14 @@ $(document).ready(function(){
 		$("#blueprint").select();
 	});
 
+  $('#multicollapse').click(function(e) {
+    if ($(this).text() == "expand all boxes") {
+      $(this).text("collapse all boxes");
+    } else {
+      $(this).text("expand all boxes");
+    }
+  });
+
   var protractorAX = 0;
   var protractorAY = 0;
   var protractorBX = 0;
