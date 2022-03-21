@@ -3,6 +3,32 @@ $(document).ready(function(){
   var paper = $("#paper");
   paper[0].ruler = new Ruler(paper[0]);
 
+  jQuery('#shards-custom-slider').customSlider({
+    start: [50],
+    tooltips: true,
+    range: {
+      'min': 0,
+      'max': 100
+    },
+    pips: {
+      mode: 'positions',
+      values: [0, 25, 50, 75, 100],
+      density: 5
+      }
+  });
+
+  $('.noUi-handle').mouseup(function(e) {
+    changeTransparency();
+    $("svg line").last().attr("opacity", "1.0");
+    $(".anglePoint").last().css("opacity", "1.0");
+  });
+
+  function changeTransparency() {
+    let transparency = parseInt($("#protractorTransparency").val()) / 100;
+    $("svg line").attr("opacity", transparency);
+    $(".anglePoint").css("opacity", transparency);
+  }
+
 	$('#blueprint').focus(function(event) {
 		$("#blueprint").select();
 	});
@@ -30,18 +56,44 @@ $(document).ready(function(){
     }
 });
 
+  function setProtractorA (x, y) {
+    protractorAX = x;
+    protractorAY = y;
+    $('#protractor1').text("X:" + x + ", Y:" + y);
+    $('#protractor-reset1').removeClass("d-none");
+  }
+
   $('#paper').click(function(e) {
     if ($('#protractor-active').is(":checked")) {
       if ($('#protractor1').text() == "unknown") {
-        protractorAX = e.pageX;
-        protractorAY = e.pageY;
-        $('#protractor1').text("X:" + e.pageX + ", Y:" + e.pageY);
-        $('#protractor-reset1').removeClass("d-none");
+        setProtractorA (e.pageX, e.pageY);
       } else {
+        // chain up a new segment if there already is one
+        if ($('#protractor2').text() != "unknown") {
+          let cordsX = $('#protractor2').text().split(":");
+          let cordsY = cordsX[2];
+          cordsX = cordsX[1].split(",")[0];
+          setProtractorA (cordsX, cordsY);
+        }
+
         protractorBX = e.pageX;
         protractorBY = e.pageY;
         $('#protractor2').text("X:" + e.pageX + ", Y:" + e.pageY);
         $('#protractor-reset2').removeClass("d-none");
+        const svg = document.querySelector('svg');
+        let labels = $(".vlabel").length;
+        var startPoint = $(".vlabel").eq(labels - 2).position();
+        var endPoint = $(".vlabel").last().position();
+        changeTransparency();
+        var newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+        newLine.setAttribute('x1', startPoint.left + 2);
+        newLine.setAttribute('y1', startPoint.top + 2);
+        newLine.setAttribute('x2', endPoint.left + 2);
+        newLine.setAttribute('y2', endPoint.top + 2);
+        newLine.setAttribute('stroke-width', 2);
+        newLine.setAttribute("stroke", "black");
+        svg.appendChild(newLine);
+        // console.log($("svg").html());
       }
 
       // calculate distance and angle
@@ -78,11 +130,22 @@ $(document).ready(function(){
 
       $("svg path").last().remove();
   		$(".hlabel").last().remove();
-  		$(".vlabel").last().text("").css("border-radius", "3px");
+  		$(".vlabel").last().text("").css("border-radius", "3px").addClass("anglePoint");
     }
   });
 
   $('#protractor-reset1').click(function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  $('#protractor-reset2').click(function(e) {
+    resetProtractor2();
+    e.preventDefault();
+    return false;
+  });
+
+  function resetProtractor1() {
     protractorAX = 0;
     protractorAY = 0;
     $('#protractor1').text("unknown");
@@ -90,11 +153,11 @@ $(document).ready(function(){
     $('#protractor-angle').text("unknown");
     $('#protractor-angle-img').hide();
     $('#protractor-reset1').hide();
-    e.preventDefault();
-    return false;
-  });
+    $("svg line").remove();
+    if ($(".vlabel").last().text() == "") {$(".vlabel").last().remove();}
+  }
 
-  $('#protractor-reset2').click(function(e) {
+  function resetProtractor2() {
     protractorBX = 0;
     protractorBY = 0;
     $('#protractor2').text("unknown");
@@ -102,10 +165,9 @@ $(document).ready(function(){
     $('#protractor-angle').text("unknown");
     $('#protractor-angle-img').hide();
     $('#protractor-reset2').hide();
+    $("svg line").remove();
     if ($(".vlabel").last().text() == "") {$(".vlabel").last().remove();}
-    e.preventDefault();
-    return false;
-  });
+  }
 
 	// load image
 	$('#blueprint-submit').click(function(event) {
@@ -164,22 +226,24 @@ $(document).ready(function(){
 	// change color
 	$('#colors a').click(function(event) {
 		var color = this.id.replace('c-', "");
-		$("#color").val(color);
+    $("#color").val(color);
 		$(".hlabel").css("color", color);
 		$(".vlabel").css("color", color);
 		$('path').attr('stroke', color);
-		$("#labelcolor").val("black");
-		$(".hlabel").css("background-color", $("#labelcolor").val());
-		$(".vlabel").css("background-color", $("#labelcolor").val());
-
-		if (color == "black" || color == "green" || color == "blue"){
-		$("#labelcolor").val("yellow");
-		$(".hlabel").css("background-color", $("#labelcolor").val());
-		$(".vlabel").css("background-color", $("#labelcolor").val());
-		}
-
+    $('#colors a').removeClass("active");
+    $(this).addClass("active");
 		return false;
 	});
+
+  $('#labelColors a').click(function(event) {
+    var color = this.id.replace('c-', "");
+    $("#labelcolor").val(color);
+    $(".hlabel").css("background-color", color);
+    $(".vlabel").css("background-color", color);
+    $('#labelColors a').removeClass("active");
+    $(this).addClass("active");
+    return false;
+  });
 
 	$('#getratio').click(function(event) {
 		getRatio();
@@ -258,18 +322,29 @@ $(document).ready(function(){
 	// clear all measurements
 	$('#clear-all').click(function(event) {
 		var answer = confirm("Clear all existing measurements from the image?")
-		if (answer){
-			$("svg path").remove();
-			$("#labels div").remove();
-		}
+    if ($('#protractor-active').is(":checked")) {
+      $("svg line").remove();
+      $(".anglePoint").remove();
+      resetProtractor1();
+      resetProtractor2();
+    } else {
+      $("svg path").remove();
+  		$(".hlabel").remove();
+  		$(".vlabel").remove();
+    }
 		return false;
 	});
 
 	// clear last measurement
 	$('#clear-last').click(function(event) {
-		$("svg path").last().remove();
-		$(".hlabel").last().remove();
-		$(".vlabel").last().remove();
+    if ($('#protractor-active').is(":checked")) {
+      $("svg line").last().remove();
+      $(".anglePoint").last().remove();
+    } else {
+      $("svg path").last().remove();
+  		$(".hlabel").last().remove();
+  		$(".vlabel").not(".anglePoint").last().remove();
+    }
 		return false;
 	});
 
@@ -294,8 +369,8 @@ $(document).ready(function(){
   });
 
 	// hide last images list on clicking elsewhere
-	$("body").click(function (evt) {
-		var target = evt.target;
+	$("body").click(function (e) {
+		var target = e.target;
 		if(target.id !== 'lastused' && target.id !== 'blueprint'){
 				$("#lastused").slideUp('fast');
 			}

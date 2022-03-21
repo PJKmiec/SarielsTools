@@ -104,7 +104,7 @@
                           </div>
                         </div>
 
-                        <div class="form-row mt-2 mb-2 border-bottom pb-3">
+                        <div class="form-row my-2 border-bottom pb-3">
                           <div class="col">
                             <button id="getratio" class="btn btn-info w-100 text-uppercase">click here to calculate</button>
                           </div>
@@ -124,7 +124,8 @@
                     <div id="scale" class="mt-2 border-top pt-2 d-none">
                       Calculate the scale:
 
-                      <div class="text-muted small mt-2 mb-2">If you know the real counterpart of the dimension you entered above,
+                      <div class="text-muted small my-2">
+                        If you know the real counterpart of the dimension you entered above,
                         enter it here to calculate what scale your model is in:
                       </div>
 
@@ -165,7 +166,13 @@
                       <label class="custom-control-label" for="protractor-active">Activate</label>
                     </div>
 
-                    When activated, click any two points on the image below to find angle and distance between them. Deactivate to return to standard drawing.<br /><br />
+                    <div class="text-muted small mb-2">
+                      When activated, click any two points on the image below. A line will connect them and the line's
+                      length and angles will be displayed below. Click anywhere again and a new line will be added connecting
+                      the end of the previous line with the new point you've just addeds. Length and angles values will be
+                      updated to show that new line. You can chain up any number of lines this way. Deactivate to return to standard drawing.
+                    </div>
+
                     <span class="bold">Point #1:</span> <span id="protractor1">unknown</span> <span id="protractor-reset1" class="d-none">[ <a href="">reset</a> ]</span><br />
                     <span class="bold">Point #2:</span> <span id="protractor2">unknown</span> <span id="protractor-reset2" class="d-none">[ <a href="">reset</a> ]</span><br /><br />
                     <span class="bold">Distance:</span> <span id="protractor-distance">unknown</span><br />
@@ -219,7 +226,7 @@
                     </div>
                   </form>
 
-                    <div class="form-row pb-3 mb-2 border-bottom">
+                    <div class="form-row pb-3 mb-2">
                         <div class="col">
                           Units:<br/>
                           <select class="form-control" id="units">
@@ -244,9 +251,20 @@
                         </div>
                       </div>
 
-                      <div class="pb-3 mb-2 border-bottom">Label color:
-                        <div id="colors" class="d-flex">
-                          <a href="" id="c-red"></a>
+                      <div class="form-row pb-3 mb-2 border-bottom">
+                        <div class="col">
+                          Transparency level for inactive protractor lines (set 0 to hide them):
+                          <div id="shards-custom-slider">
+                            <input type="hidden" class='custom-slider-input' id="protractorTransparency">
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="pb-3 mb-2 border-bottom">
+                        Line / measurement color:
+                        <div id="colors" class="d-flex mt-1 mb-3 colorpicker">
+                          <a href="" id="c-red" class="active"></a>
                           <a href="" id="c-white"></a>
                           <a href="" id="c-yellow"></a>
                           <a href="" id="c-orange"></a>
@@ -255,12 +273,25 @@
                           <a href="" id="c-green"></a>
                           <a href="" id="c-blue"></a>
                           <a href="" id="c-black"></a>
-                          <input type="hidden" id="color" value="red">
-                          <input type="hidden" id="labelcolor" value="black">
                         </div>
+                        Measurement background color:
+                        <div id="labelColors" class="d-flex mt-1 colorpicker">
+                          <a href="" id="c-black" class="active"></a>
+                          <a href="" id="c-white"></a>
+                          <a href="" id="c-red"></a>
+                          <a href="" id="c-yellow"></a>
+                          <a href="" id="c-orange"></a>
+                          <a href="" id="c-lime"></a>
+                          <a href="" id="c-cyan"></a>
+                          <a href="" id="c-green"></a>
+                          <a href="" id="c-blue"></a>
+                        </div>
+                        <input type="hidden" id="color" value="red">
+                        <input type="hidden" id="labelcolor" value="black">
                       </div>
 
                       <div class="pb-3 mb-2 border-bottom">Clearing the measurements:<br />
+                        <div class="text-muted small">Only clears protractor measurements while protractor is active</div>
                         <div class="form-row mt-2">
                             <div class="col">
                               <a href="" id="clear-last" class="btn btn-outline-danger text-uppercase w-100">clear last one</a>
@@ -349,7 +380,7 @@
   ?>
   <script src="raphael.packed.js"></script>
   <script src="jquery.cookie.js"></script>
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=6"></script>
 
   </div>
 
