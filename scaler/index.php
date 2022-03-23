@@ -3,7 +3,7 @@
   define("TITLE", "LEGO Model Scaler");
   require_once('../common/php/header.php');
  ?>
- <link rel="stylesheet" href="style.css?ver=2">
+ <link rel="stylesheet" href="style.css?ver=4">
 
           <div class="main-content-container container-fluid px-0">
             <!-- Page Header -->
@@ -173,11 +173,25 @@
                       updated to show that new line. You can chain up any number of lines this way. Deactivate to return to standard drawing.
                     </div>
 
-                    <span class="bold">Point #1:</span> <span id="protractor1">unknown</span> <span id="protractor-reset1" class="d-none">[ <a href="">reset</a> ]</span><br />
+                    <div class="d-none"><span class="bold">Point #1:</span> <span id="protractor1">unknown</span> <span id="protractor-reset1" class="d-none">[ <a href="">reset</a> ]</span><br />
                     <span class="bold">Point #2:</span> <span id="protractor2">unknown</span> <span id="protractor-reset2" class="d-none">[ <a href="">reset</a> ]</span><br /><br />
+                    </div>
                     <span class="bold">Distance:</span> <span id="protractor-distance">unknown</span><br />
                     <span class="bold">Angle:</span> <span id="protractor-angle">unknown</span>
                     <div id="protractor-angle-img"></div>
+
+                    <div class="form-row pt-3 mt-2 border-top">
+                      <div class="col text-center">
+                        Transparency level for inactive lines:
+                        <div id="shards-custom-slider">
+                          <input type="hidden" class='custom-slider-input' id="protractorTransparency">
+                        </div>
+                        <br>Transparency level for inactive labels:
+                        <div id="shards-custom-slider2">
+                          <input type="hidden" class='custom-slider-input' id="protractorLabelTransparency">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -239,59 +253,53 @@
                         <div class="col">
                           Accuracy:<br/>
                           <select class="form-control" id="accuracy">
-                            <option value="10">0.1</option>
-                            <option value="100">0.01</option>
-                            <option value="1000">0.001</option>
-                            <option value="10000">0.0001</option>
-                            <option value="100000">0.00001</option>
-                            <option value="1000000">0.000001</option>
-                            <option value="10000000">0.0000001</option>
-                            <option value="1">1</option>
+                            <option value="0">1</option>
+                            <option value="1" selected>0.1</option>
+                            <option value="2">0.01</option>
+                            <option value="3">0.001</option>
+                            <option value="4">0.0001</option>
+                            <option value="5">0.00001</option>
+                            <option value="6">0.000001</option>
+                            <option value="7">0.0000001</option>
                           </select>
                         </div>
                       </div>
 
                       <div class="form-row pb-3 mb-2 border-bottom">
-                        <div class="col">
-                          Transparency level for inactive protractor lines (set 0 to hide them):
-                          <div id="shards-custom-slider">
-                            <input type="hidden" class='custom-slider-input' id="protractorTransparency">
+                          <div class="col">
+                            Line / digits color:<br/>
+                            <select class="form-control" id="colors">
+                              <option>red</option>
+                              <option>white</option>
+                              <option>black</option>
+                              <option>yellow</option>
+                              <option>orange</option>
+                              <option>lime</option>
+                              <option>green</option>
+                              <option>cyan</option>
+                              <option>blue</option>
+                            </select>
                           </div>
-
+                          <div class="col">
+                            Labels color:<br/>
+                            <select class="form-control" id="labelColors">
+                              <option>black</option>
+                              <option>white</option>
+                              <option>red</option>
+                              <option>yellow</option>
+                              <option>orange</option>
+                              <option>lime</option>
+                              <option>green</option>
+                              <option>cyan</option>
+                              <option>blue</option>
+                            </select>
+                          </div>
+                          <input type="hidden" id="color" value="red">
+                          <input type="hidden" id="labelcolor" value="black">
                         </div>
-                      </div>
-
-                      <div class="pb-3 mb-2 border-bottom">
-                        Line / measurement color:
-                        <div id="colors" class="d-flex mt-1 mb-3 colorpicker">
-                          <a href="" id="c-red" class="active"></a>
-                          <a href="" id="c-white"></a>
-                          <a href="" id="c-yellow"></a>
-                          <a href="" id="c-orange"></a>
-                          <a href="" id="c-lime"></a>
-                          <a href="" id="c-cyan"></a>
-                          <a href="" id="c-green"></a>
-                          <a href="" id="c-blue"></a>
-                          <a href="" id="c-black"></a>
-                        </div>
-                        Measurement background color:
-                        <div id="labelColors" class="d-flex mt-1 colorpicker">
-                          <a href="" id="c-black" class="active"></a>
-                          <a href="" id="c-white"></a>
-                          <a href="" id="c-red"></a>
-                          <a href="" id="c-yellow"></a>
-                          <a href="" id="c-orange"></a>
-                          <a href="" id="c-lime"></a>
-                          <a href="" id="c-cyan"></a>
-                          <a href="" id="c-green"></a>
-                          <a href="" id="c-blue"></a>
-                        </div>
-                        <input type="hidden" id="color" value="red">
-                        <input type="hidden" id="labelcolor" value="black">
-                      </div>
 
                       <div class="pb-3 mb-2 border-bottom">Clearing the measurements:<br />
-                        <div class="text-muted small">Only clears protractor measurements while protractor is active</div>
+                        <div class="text-muted small">Only clears protractor lines while protractor is active</div>
                         <div class="form-row mt-2">
                             <div class="col">
                               <a href="" id="clear-last" class="btn btn-outline-danger text-uppercase w-100">clear last one</a>
@@ -380,7 +388,7 @@
   ?>
   <script src="raphael.packed.js"></script>
   <script src="jquery.cookie.js"></script>
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=8"></script>
 
   </div>
 

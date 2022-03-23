@@ -17,7 +17,21 @@ $(document).ready(function(){
       }
   });
 
-  $('.noUi-handle').mouseup(function(e) {
+  jQuery('#shards-custom-slider2').customSlider({
+    start: [100],
+    tooltips: true,
+    range: {
+      'min': 0,
+      'max': 100
+    },
+    pips: {
+      mode: 'positions',
+      values: [0, 25, 50, 75, 100],
+      density: 5
+      }
+  });
+
+  $('#shards-custom-slider .noUi-handle').mouseup(function(e) {
     changeTransparency();
     $("svg line").last().attr("opacity", "1.0");
     $(".anglePoint").last().css("opacity", "1.0");
@@ -27,6 +41,16 @@ $(document).ready(function(){
     let transparency = parseInt($("#protractorTransparency").val()) / 100;
     $("svg line").attr("opacity", transparency);
     $(".anglePoint").css("opacity", transparency);
+  }
+
+  $('#shards-custom-slider2 .noUi-handle').mouseup(function(e) {
+    changeLabelTransparency();
+    $(".dlabel").last().css("opacity", "1.0");
+  });
+
+  function changeLabelTransparency() {
+    let transparency = parseInt($("#protractorLabelTransparency").val()) / 100;
+    $(".dlabel").css("opacity", transparency);
   }
 
 	$('#blueprint').focus(function(event) {
@@ -62,6 +86,14 @@ $(document).ready(function(){
     $('#protractor1').text("X:" + x + ", Y:" + y);
     $('#protractor-reset1').removeClass("d-none");
   }
+
+  function calculateMidpoint(x1, y1, x2, y2) {
+     return [(parseInt(x1) + parseInt(x2)) / 2, (parseInt(y1) + parseInt(y2)) / 2];
+   }
+
+   function round(x, f = 2) {
+     return Number(x.toFixed(f));
+   }
 
   $('#paper').click(function(e) {
     if ($('#protractor-active').is(":checked")) {
@@ -101,31 +133,36 @@ $(document).ready(function(){
         var a = protractorAX - protractorBX;
         var b = protractorAY - protractorBY;
 
-        var distanceUnits = $( "#units option:selected" ).text();
+        var distanceUnits = $("#units option:selected").text();
 
         if ($('#ratio-size').val() <= 0 || $('#ratio-size').val() == "") {
           distanceUnits = "pixels";
         }
 
-        var distance = Math.round(Math.sqrt( a*a + b*b ) * ratio * $('#units').val() * $('#accuracy').val()/$('#accuracy').val() * 100) / 100;
+        var rawDistance = Math.sqrt(a * a + b * b) ;
+        var distance = round(rawDistance * ratio * $('#units').val(), $('#accuracy').val());
         $('#protractor-distance').text(distance + " " + distanceUnits);
-        var angle = Math.round(Math.atan2(b, a) * 180 / Math.PI * 100) / 100;
+        var angle = round(Math.atan2(b, a) * 180 / Math.PI);
+
+        var midpoint = calculateMidpoint(protractorAX, protractorAY, protractorBX, protractorBY);
+        var midpointLabel = $('<div class="dlabel" style="color: ' + $("#color").val() + '; background-color: ' + $("#labelcolor").val() + '" title="' + rawDistance + '"></div>');
+        let midpointLabelCoords = {x: midpoint[0] - $("#paper").offset().left, y: midpoint[1] - $("#paper").offset().top };
+        midpointLabel.text(distance).css({"left": midpointLabelCoords.x, "top": midpointLabelCoords.y}).appendTo($("#labels"));
 
         if (angle > 90 && angle < 180) {
-          var angle1 = Math.round((angle - 90) * 100) / 100;
+          var angle1 = round(angle - 90);
           $('#protractor-angle-img').css("background-position", "top left").show();
         } else if (angle > 0 && angle < 90) {
           var angle1 = angle;
           $('#protractor-angle-img').css("background-position", "bottom left").show();
         } else if (angle < -90 && angle > -180) {
-          var angle1 = Math.round((angle + 180) * 100) / 100;;
+          var angle1 = round(angle + 180);
           $('#protractor-angle-img').css("background-position", "top right").show();
         } else {
-          var angle1 = Math.round((angle + 90) * 100) / 100;;
+          var angle1 = round(angle + 90);
           $('#protractor-angle-img').css("background-position", "bottom right").show();
         }
-        $('#protractor-angle').html("<span class='red'>" + angle1 + "&deg;</span> / <span class='blue'>" +  Math.round((90 - angle1) * 100) / 100 + "&deg;</span> ");
-
+        $('#protractor-angle').html("<span class='red'>" + angle1 + "&deg;</span> / <span class='blue'>" +  round(90 - angle1) + "&deg;</span> ");
       }
 
       $("svg path").last().remove();
@@ -133,41 +170,6 @@ $(document).ready(function(){
   		$(".vlabel").last().text("").css("border-radius", "3px").addClass("anglePoint");
     }
   });
-
-  $('#protractor-reset1').click(function(e) {
-    e.preventDefault();
-    return false;
-  });
-
-  $('#protractor-reset2').click(function(e) {
-    resetProtractor2();
-    e.preventDefault();
-    return false;
-  });
-
-  function resetProtractor1() {
-    protractorAX = 0;
-    protractorAY = 0;
-    $('#protractor1').text("unknown");
-    $('#protractor-distance').text("unknown");
-    $('#protractor-angle').text("unknown");
-    $('#protractor-angle-img').hide();
-    $('#protractor-reset1').hide();
-    $("svg line").remove();
-    if ($(".vlabel").last().text() == "") {$(".vlabel").last().remove();}
-  }
-
-  function resetProtractor2() {
-    protractorBX = 0;
-    protractorBY = 0;
-    $('#protractor2').text("unknown");
-    $('#protractor-distance').text("unknown");
-    $('#protractor-angle').text("unknown");
-    $('#protractor-angle-img').hide();
-    $('#protractor-reset2').hide();
-    $("svg line").remove();
-    if ($(".vlabel").last().text() == "") {$(".vlabel").last().remove();}
-  }
 
 	// load image
 	$('#blueprint-submit').click(function(event) {
@@ -224,24 +226,24 @@ $(document).ready(function(){
 	});
 
 	// change color
-	$('#colors a').click(function(event) {
-		var color = this.id.replace('c-', "");
+	$('#colors').change(function(event) {
+		var color = $(this).val();
     $("#color").val(color);
 		$(".hlabel").css("color", color);
 		$(".vlabel").css("color", color);
+    $(".dlabel").css("color", color);
 		$('path').attr('stroke', color);
-    $('#colors a').removeClass("active");
-    $(this).addClass("active");
+    $('line').attr('stroke', color);
+    $(".anglePoint").css("background-color", color);
 		return false;
 	});
 
-  $('#labelColors a').click(function(event) {
-    var color = this.id.replace('c-', "");
+  $('#labelColors').change(function(event) {
+    var color = $(this).val();
     $("#labelcolor").val(color);
     $(".hlabel").css("background-color", color);
-    $(".vlabel").css("background-color", color);
-    $('#labelColors a').removeClass("active");
-    $(this).addClass("active");
+    $(".vlabel").not(".anglePoint").css("background-color", color);
+    $(".dlabel").css("background-color", color);
     return false;
   });
 
@@ -265,11 +267,11 @@ $(document).ready(function(){
 		$("#ratioresult").html("<strong>Results:</strong><br />");
 
 		if (studs < 1){
-			$("#ratio-size").css("background","red");
+			$("#ratio-size").css("border-color","red");
 			$("#ratioresult").append('<span class="warning">Enter dimension no less than 1 stud!</span>');
 			}
 		else if (studs >= 1){
-			$("#ratio-size").css("background","#f3f3f3");
+			$("#ratio-size").css("border-color","#red");
 
 			if ($('.hlabel').length < 1)
 				$("#ratioresult").append('<span class="warning">Draw dimension first!</span>');
@@ -277,19 +279,26 @@ $(document).ready(function(){
 				if ($("#originaldimension").val() == 0)
 					$("#originaldimension").val($("." + r_type + "label").html());
 				var dimension = $("#originaldimension").val();
-				ratio = Math.round((studs / dimension)*1000000)/1000000;
+				ratio = round((studs / dimension), 7);
 				$("#ratio").val(ratio);
 				$("#ratioresult").append('1 px = ' + ratio + ' stud');
 				$('.hlabel').each(function(index) {
-					$(this).html(Math.round((parseInt($(this).attr("title")) * ratio) * $('#units').val() * $('#accuracy').val())/$('#accuracy').val()); // calculate
+          $(this).text(recalculateMeasurement($(this)));
 				});
-				$('.vlabel').each(function(index) {
-					$(this).html(Math.round((parseInt($(this).attr("title")) * ratio) * $('#units').val() * $('#accuracy').val())/$('#accuracy').val()); // calculate
+				$('.vlabel').not('.anglePoint').each(function(index) {
+          $(this).text(recalculateMeasurement($(this)));
 				});
+        $('.dlabel').each(function(index) {
+          $(this).text(recalculateMeasurement($(this)));
+        });
 				$("#scale").removeClass("d-none");
 			}
 		}
 	}
+
+  function recalculateMeasurement(label) {
+    return round((parseInt(label.attr("title")) * ratio) * $('#units').val(), $('#accuracy').val());
+  }
 
 	$('#getscale').click(function(event) {
 		getScale();
@@ -306,10 +315,10 @@ $(document).ready(function(){
 			$("#scaleresult").html('<br /><span class="warning">Enter dimension no less than 1 unit!</span>');
 		else
 		{
-			var scale = Math.round(((studs * realunits) / realsize) * 100)/100;
+			var scale = round((studs * realunits) / realsize);
 
 			if (scale < 1)
-				var rscale = '1:' + Math.round((1 / scale) * 10)/10 + ' scale (' + Math.round((1 / scale) * 10)/10 + ' times smaller than original).';
+				var rscale = '1:' + round((1 / scale), 1) + ' scale (' + round((1 / scale), 1) + ' times smaller than original).';
 			else if (scale == 1)
 				var rscale = '1:1 scale (same size as original).';
 			else
@@ -319,12 +328,31 @@ $(document).ready(function(){
 		}
 	}
 
+  function resetProtractor1() {
+    protractorAX = 0;
+    protractorAY = 0;
+    $('#protractor1').text("unknown");
+    $('#protractor-distance').text("unknown");
+    $('#protractor-angle').text("unknown");
+    $('#protractor-angle-img').hide();
+  }
+
+  function resetProtractor2() {
+    protractorBX = 0;
+    protractorBY = 0;
+    $('#protractor2').text("unknown");
+    $('#protractor-distance').text("unknown");
+    $('#protractor-angle').text("unknown");
+    $('#protractor-angle-img').hide();
+  }
+
 	// clear all measurements
 	$('#clear-all').click(function(event) {
 		var answer = confirm("Clear all existing measurements from the image?")
     if ($('#protractor-active').is(":checked")) {
       $("svg line").remove();
       $(".anglePoint").remove();
+      $(".dlabel").remove();
       resetProtractor1();
       resetProtractor2();
     } else {
@@ -340,6 +368,9 @@ $(document).ready(function(){
     if ($('#protractor-active').is(":checked")) {
       $("svg line").last().remove();
       $(".anglePoint").last().remove();
+      $(".dlabel").last().remove();
+      resetProtractor1();
+      resetProtractor2();
     } else {
       $("svg path").last().remove();
   		$(".hlabel").last().remove();

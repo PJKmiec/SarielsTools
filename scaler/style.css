@@ -20,20 +20,9 @@
 #labels {position: absolute;}
 footer {position: relative; top: 2820px;}
 
-.colorpicker a {display: block; border: 1px solid #dfdfdf; border-radius: 5px; width: 30px; height: 30px; cursor: default; margin-right: 3px; cursor: pointer;}
-.colorpicker a:hover, .colorpicker a.active {border: 1px solid #000000;}
-#c-red {background: red;}
-#c-white {background: white;}
-#c-yellow {background: yellow;}
-#c-cyan {background: cyan;}
-#c-lime {background: lime;}
-#c-orange {background: orange;}
-#c-green {background: green;}
-#c-blue {background: blue;}
-#c-black {background: black;}
 #fit, #refit {cursor: pointer;}
 
-.hlabel, .vlabel {position: absolute; color:red; background: black; padding:3px; font-size: 14px; font-weight: bold;}
+.hlabel, .vlabel, .dlabel {position: absolute; color:red; background: black; padding:3px; font-size: 14px; font-weight: bold;}
 
 #lastused {position: absolute; top: 216px; left: 16px; padding: 5px 4px 7px; width: 646px; background-color: #797979; color: white; font: normal 12px/0.4cm Arial, Tahoma, Verdana; -moz-border-radius: 3px; border-radius: 3px; z-index: 110; display: none;}
 #lastused a {color: white;}
@@ -42,4 +31,3 @@ footer {position: relative; top: 2820px;}
 
 .red {color: red;}
 .blue {color: blue;}
-.anglePoint {background-color: black !important;}
