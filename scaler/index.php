@@ -14,9 +14,48 @@
                   <span class="material-icons align-middle" style="font-size: 3rem">aspect_ratio</span> Model Scaler
                 </h3>
               </div>
-              <div class="text-right">
+              <div class="d-flex">
                 <button id="multicollapse" data-toggle="collapse" data-target=".collapse"
-                class="btn btn-outline-primary btn-pill text-uppercase">collapse all boxes</a>
+                class="btn btn-outline-primary text-uppercase mr-2">toggle all boxes</button>
+
+                <button id="saveLoadButton" type="button" class="btn btn-success text-uppercase w-100" data-toggle="modal" data-target="#saveModal">save/load</button>
+
+                <!-- Save / Load Modal -->
+                <div class="modal fade" id="saveModal">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Save / load the results</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        You can save up to three various blueprints with all measurements in your browser. Please note
+                        that these will only be available in your current browser, and that loading a save overwrites
+                        the current canvas content.
+
+                        <?php
+                          for ($i = 1; $i <= 3; $i++) {
+                            echo '<div id="save'.$i.'" class="border my-2 p-2 rounded d-flex w-100">
+                              <div class="blueprintSaveImg rounded"></div>
+                              <div class="blueprintSave text-center pt-2 pl-4"><span>EMPTY</span><br><br>
+                                <button class="save btn btn-success text-uppercase m-1">Save here</button>
+                                <button class="load btn btn-info text-uppercase m-1 d-none">Load</button>
+                                <button class="delete btn btn-danger text-uppercase m-1 d-none">Delete</button>
+                              </div>
+                            </div>';
+                          }
+                        ?>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" id="closeModal" class="btn btn-warning text-uppercase" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
             <!-- End Page Header -->
@@ -64,6 +103,8 @@
                         <input type="submit" id="blueprint-submit" value=" Load &raquo; " class="btn btn-success text-uppercase">
                       </div>
                     </div>
+
+                    <input type="hidden" id="blueprintSize">
 
                     <div id="imageControls" class="d-none">
                       <div class="text-center">Adjust the image size:</div>
@@ -183,11 +224,11 @@
                     <div class="form-row pt-3 mt-2 border-top">
                       <div class="col text-center">
                         Transparency level for inactive lines:
-                        <div id="shards-custom-slider">
+                        <div id="shards-custom-slider" class="mx-3">
                           <input type="hidden" class='custom-slider-input' id="protractorTransparency">
                         </div>
                         <br>Transparency level for inactive labels:
-                        <div id="shards-custom-slider2">
+                        <div id="shards-custom-slider2" class="mx-3">
                           <input type="hidden" class='custom-slider-input' id="protractorLabelTransparency">
                         </div>
                       </div>

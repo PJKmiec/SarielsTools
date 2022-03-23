@@ -28,6 +28,8 @@ footer {position: relative; top: 2820px;}
 #lastused a {color: white;}
 
 #protractor-angle-img {width: 60px; height: 60px; border: 0; margin: 20px auto 0; background: transparent url('images/angle.png') top left; display: none;}
+.blueprintSaveImg {width: 100px; height: 100px; background: #e0e3e5; background-size: cover;}
+.blueprintSave {width: calc(100% - 120px);}
 
 .red {color: red;}
 .blue {color: blue;}

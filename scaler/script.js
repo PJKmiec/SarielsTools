@@ -3,6 +3,7 @@ $(document).ready(function(){
   var paper = $("#paper");
   paper[0].ruler = new Ruler(paper[0]);
 
+  // Protractor transparency slider
   jQuery('#shards-custom-slider').customSlider({
     start: [50],
     tooltips: true,
@@ -17,6 +18,7 @@ $(document).ready(function(){
       }
   });
 
+  // Protractor label transparency slider
   jQuery('#shards-custom-slider2').customSlider({
     start: [100],
     tooltips: true,
@@ -56,14 +58,6 @@ $(document).ready(function(){
 	$('#blueprint').focus(function(event) {
 		$("#blueprint").select();
 	});
-
-  $('#multicollapse').click(function(e) {
-    if ($(this).text() == "expand all boxes") {
-      $(this).text("collapse all boxes");
-    } else {
-      $(this).text("expand all boxes");
-    }
-  });
 
   var protractorAX = 0;
   var protractorAY = 0;
@@ -125,7 +119,8 @@ $(document).ready(function(){
         newLine.setAttribute('stroke-width', 2);
         newLine.setAttribute("stroke", "black");
         svg.appendChild(newLine);
-        // console.log($("svg").html());
+        console.log($("svg").html());
+        console.log($("#labels").html());
       }
 
       // calculate distance and angle
@@ -171,10 +166,93 @@ $(document).ready(function(){
     }
   });
 
-	// load image
+  // save / load
+  $('#saveLoadButton').click(function(event) {
+    loadSaves();
+  });
+
+  function loadSaves() {
+    var saves = ["save1", "save2", "save3"];
+
+    saves.forEach(function (item) {
+      var save = localStorage.getItem("afolscaler" + item);
+      if (save != null && save != "" && save.includes("^", 10)) {
+        var parts = save.split("^");
+        $('#' + item + ' .blueprintSaveImg').css({"background": "transparent url(\"" + parts[1] + "\") no-repeat center", "background-size" : "cover"});
+        $('#' + item + ' .blueprintSave span').text("SAVE " + parts[0]);
+        $('#' + item + ' .blueprintSave .save').text("Save over");
+        $('#' + item + ' .blueprintSave .load').removeClass("d-none");
+        $('#' + item + ' .blueprintSave .delete').removeClass("d-none");
+      } else {
+        $("#" + item).html('<div class="blueprintSaveImg rounded"></div>' +
+          '<div class="blueprintSave text-center pt-2 pl-4"><span>EMPTY</span><br><br>' +
+            '<button class="save btn btn-success text-uppercase m-1">Save here</button>' +
+            '<button class="load btn btn-info text-uppercase m-1 d-none">Load</button>' +
+            '<button class="delete btn btn-danger text-uppercase m-1 d-none">Delete</button>' +
+        '</div>')
+      }
+    });
+  }
+
+  // save a save
+  $(document).on("click", ".modal-body .save" , function() {
+    var id = $(this).parent().parent().attr("id");
+    var today = new Date();
+    var date = today.getDate() + "." + (today.getMonth() + 1 ) + "." + today.getFullYear() + " " +
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var blueprintLink = $("#blueprint").val();
+    var blueprintSize = $("#blueprintSize").val();
+    var ratio = $("#ratio").val();
+    var ratioSize = $("#ratio-size").val();
+    var ratioType = $("#ratio-type").val();
+    var originaldimension = $("#originaldimension").val();
+    var svgContent = $("#paper svg").html();
+    var labelContent = $("#labels").html();
+    var separator = "^";
+    var saveString = date + separator + blueprintLink + separator + svgContent + separator + labelContent
+                   + separator + blueprintSize + separator + ratioSize + separator + ratioType  + separator + ratio
+                   + separator + originaldimension;
+    localStorage.setItem("afolscaler" + id, saveString);
+    loadSaves();
+  });
+
+  // load a save
+  $(document).on("click", ".modal-body .load" , function() {
+    var id = $(this).parent().parent().attr("id");
+    var save = localStorage.getItem("afolscaler" + id);
+    if (save != null && save != "" && save.includes("^", 10)) {
+      var parts = save.split("^");
+      var sizes = parts[4].split("x");
+      $("#blueprint").val(parts[1]);
+      $("#canvas").html("<img src='" + parts[1] + "' alt=''>");
+      $("#blueprint-submit").trigger("click");
+      $("#canvas img").css("width", sizes[0]);
+      $("#canvas img").css("height", sizes[1]);
+      $("svg").html(parts[2]);
+      $("#labels").html(parts[3]);
+      $("#ratio").val(parts[7]);
+      $("#ratio-size").val(parts[5]);
+      $("#ratio-type").val(parts[6]);
+      $("#originaldimension").val(parts[8]);
+      getRatio();
+      $("#closeModal").trigger("click");
+    }
+  });
+
+  // delete a save
+  $(document).on("click", ".modal-body .delete" , function() {
+    var confirmation = confirm("Are you sure you want to delete a save?");
+    if (confirmation) {
+      var id = $(this).parent().parent().attr("id");
+      localStorage.setItem("afolscaler" + id, null);
+      loadSaves();
+    }
+  });
+
+  // load image
 	$('#blueprint-submit').click(function(event) {
-		$("#canvas").css("background", "#797979 url('images/spinner.gif') no-repeat 50% 200px");
 		$("#canvas").html("<img src='" + $("#blueprint").val() + "' alt=''>");
+    $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
 		if ($("#blueprint").val()){
       $("#imageControls").removeClass("d-none");
 
@@ -188,11 +266,10 @@ $(document).ready(function(){
 				$.cookie("modelscalerlastused", $("#blueprint").val() + '^', { expires: 60, path: '/', domain: 'scaler.sariel.pl' });
 		}
 	});
-
-  // reset to original size
+    // reset to original size
 	$('#refit').click(function(event) {
-		$("#canvas").css("background", "#797979 url('images/spinner.gif') no-repeat 50% 200px");
 		$("#canvas").html("<img src='" + $("#blueprint").val() + "' alt=''>");
+    $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
 		return false;
 	});
 
@@ -204,6 +281,7 @@ $(document).ready(function(){
 		ratio = canwidth / width;
 		$("#canvas img").css("width", canwidth);
 		$("#canvas img").css("height", height * ratio);
+    $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
 		return false;
 	});
 
@@ -213,6 +291,7 @@ $(document).ready(function(){
     var height = Math.round($("#canvas img").height() * 1.1);
 		$("#canvas img").css("width", width);
 		$("#canvas img").css("height", height);
+    $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
 		return false;
 	});
 
@@ -222,6 +301,7 @@ $(document).ready(function(){
     var height = Math.round($("#canvas img").height() * 0.9);
 		$("#canvas img").css("width", width);
 		$("#canvas img").css("height", height);
+    $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
 		return false;
 	});
 
@@ -294,6 +374,7 @@ $(document).ready(function(){
 				$("#scale").removeClass("d-none");
 			}
 		}
+    $("#ratio-type").prop('disabled', 'disabled');
 	}
 
   function recalculateMeasurement(label) {
@@ -348,17 +429,19 @@ $(document).ready(function(){
 
 	// clear all measurements
 	$('#clear-all').click(function(event) {
-		var answer = confirm("Clear all existing measurements from the image?")
-    if ($('#protractor-active').is(":checked")) {
-      $("svg line").remove();
-      $(".anglePoint").remove();
-      $(".dlabel").remove();
-      resetProtractor1();
-      resetProtractor2();
-    } else {
-      $("svg path").remove();
-  		$(".hlabel").remove();
-  		$(".vlabel").remove();
+		var confirmation = confirm("Clear all existing measurements from the image?");
+    if (confirmation) {
+      if ($('#protractor-active').is(":checked")) {
+        $("svg line").remove();
+        $(".anglePoint").remove();
+        $(".dlabel").remove();
+        resetProtractor1();
+        resetProtractor2();
+      } else {
+        $("svg path").remove();
+  		  $(".hlabel").remove();
+  		  $(".vlabel").remove();
+      }
     }
 		return false;
 	});
