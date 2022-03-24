@@ -33,6 +33,14 @@ $(document).ready(function(){
       }
   });
 
+  function calculateMidpoint(x1, y1, x2, y2) {
+     return [(parseInt(x1) + parseInt(x2)) / 2, (parseInt(y1) + parseInt(y2)) / 2];
+   }
+
+  function roundNumber(x, f = 2) {
+    return Number(x.toFixed(f));
+  }
+
   // protractor lines transparency
   $('#shards-custom-slider .noUi-handle').mouseup(function(e) {
     changeTransparency();
@@ -82,14 +90,6 @@ $(document).ready(function(){
     $('#protractor-reset1').removeClass("d-none");
   }
 
-  function calculateMidpoint(x1, y1, x2, y2) {
-     return [(parseInt(x1) + parseInt(x2)) / 2, (parseInt(y1) + parseInt(y2)) / 2];
-   }
-
-   function round(x, f = 2) {
-     return Number(x.toFixed(f));
-   }
-
   $('#paper').click(function(e) {
     if ($('#protractor-active').is(":checked")) {
       if ($('#protractor1').text() == "unknown") {
@@ -134,9 +134,9 @@ $(document).ready(function(){
         }
 
         var rawDistance = Math.sqrt(a * a + b * b) ;
-        var distance = round(rawDistance * ratio * $('#units').val(), $('#accuracy').val());
+        var distance = roundNumber(rawDistance * ratio * $('#units').val(), $('#accuracy').val());
         $('#protractor-distance').text(distance + " " + distanceUnits);
-        var angle = round(Math.atan2(b, a) * 180 / Math.PI);
+        var angle = roundNumber(Math.atan2(b, a) * 180 / Math.PI);
 
         var midpoint = calculateMidpoint(protractorAX, protractorAY, protractorBX, protractorBY);
         var midpointLabel = $('<div class="dlabel" style="color: ' + $("#color").val() + '; background-color: ' + $("#labelcolor").val() + '" title="' + rawDistance + '"></div>');
@@ -144,19 +144,19 @@ $(document).ready(function(){
         midpointLabel.text(distance).css({"left": midpointLabelCoords.x, "top": midpointLabelCoords.y}).appendTo($("#labels"));
 
         if (angle > 90 && angle < 180) {
-          var angle1 = round(angle - 90);
+          var angle1 = roundNumber(angle - 90);
           $('#protractor-angle-img').css("background-position", "top left").show();
         } else if (angle > 0 && angle < 90) {
           var angle1 = angle;
           $('#protractor-angle-img').css("background-position", "bottom left").show();
         } else if (angle < -90 && angle > -180) {
-          var angle1 = round(angle + 180);
+          var angle1 = roundNumber(angle + 180);
           $('#protractor-angle-img').css("background-position", "top right").show();
         } else {
-          var angle1 = round(angle + 90);
+          var angle1 = roundNumber(angle + 90);
           $('#protractor-angle-img').css("background-position", "bottom right").show();
         }
-        $('#protractor-angle').html("<span class='red'>" + angle1 + "&deg;</span> / <span class='blue'>" +  round(90 - angle1) + "&deg;</span> ");
+        $('#protractor-angle').html("<span class='red'>" + angle1 + "&deg;</span> / <span class='blue'>" +  roundNumber(90 - angle1) + "&deg;</span> ");
       }
 
       $("svg path").last().remove();
@@ -246,7 +246,7 @@ $(document).ready(function(){
       $("#labelColors").val(parts[10]);
       $("#labelcolor").val(parts[10]);
       getRatio();
-      $("#closeModal").trigger("click");
+      $('#saveModal').modal('toggle');
     }
   });
 
@@ -293,7 +293,6 @@ $(document).ready(function(){
 
       reader.readAsDataURL(file);
     }
-  });
 
     $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
     if ($("#blueprint").val()){
@@ -403,7 +402,7 @@ $(document).ready(function(){
 				if ($("#originaldimension").val() == 0)
 					$("#originaldimension").val($("." + r_type + "label").html());
 				var dimension = $("#originaldimension").val();
-				ratio = round((studs / dimension), 7);
+				ratio = roundNumber((studs / dimension), 7);
 				$("#ratio").val(ratio);
 				$("#ratioresult").append('1 px = ' + ratio + ' stud');
 				$('.hlabel').each(function(index) {
@@ -422,7 +421,7 @@ $(document).ready(function(){
 	}
 
   function recalculateMeasurement(label) {
-    return round((parseInt(label.attr("title")) * ratio) * $('#units').val(), $('#accuracy').val());
+    return roundNumber((parseInt(label.attr("title")) * ratio) * $('#units').val(), $('#accuracy').val());
   }
 
 	$('#getscale').click(function(event) {
@@ -440,10 +439,10 @@ $(document).ready(function(){
 			$("#scaleresult").html('<br /><span class="warning">Enter dimension no less than 1 unit!</span>');
 		else
 		{
-			var scale = round((studs * realunits) / realsize);
+			var scale = roundNumber((studs * realunits) / realsize);
 
 			if (scale < 1)
-				var rscale = '1:' + round((1 / scale), 1) + ' scale (' + round((1 / scale), 1) + ' times smaller than original).';
+				var rscale = '1:' + roundNumber((1 / scale), 1) + ' scale (' + roundNumber((1 / scale), 1) + ' times smaller than original).';
 			else if (scale == 1)
 				var rscale = '1:1 scale (same size as original).';
 			else
@@ -533,6 +532,7 @@ $(document).ready(function(){
 				$("#lastused").slideUp('fast');
 			}
     });
+  });
 
 var Ruler = function (elem) {
   elem = $(elem);

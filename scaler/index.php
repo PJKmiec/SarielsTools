@@ -439,7 +439,7 @@
   ?>
   <script src="raphael.packed.js"></script>
   <script src="jquery.cookie.js"></script>
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=12"></script>
 
   </div>
 
