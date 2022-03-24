@@ -277,6 +277,39 @@ $(document).ready(function(){
 				$.cookie("modelscalerlastused", $("#blueprint").val() + '^', { expires: 60, path: '/', domain: 'scaler.sariel.pl' });
 		}
 	});
+
+  // upload image
+  $('#blueprint-upload').click(function(event) {
+    var file = $("#blueprint-local").get(0).files[0];
+    if (file) {
+      $("#canvas").html("<img src='' alt=''>");
+      console.log("x");
+      var reader = new FileReader();
+
+      reader.onload = function(){
+        $("#canvas img").attr("src", reader.result);
+        $("#imageControls").removeClass("d-none");
+      }
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+    $("#blueprintSize").val($("#canvas img").width() + "x" + $("#canvas img").height());
+    if ($("#blueprint").val()){
+      $("#imageControls").removeClass("d-none");
+
+      if ($.cookie("modelscalerlastused")){
+        var lastimage = $.cookie("modelscalerlastused").split('^');
+
+        if (lastimage[0] != $("#blueprint").val())
+          $.cookie("modelscalerlastused", $("#blueprint").val() + '^' + lastimage[0] + '^' + lastimage[1] + '^' + lastimage[2] + '^' + lastimage[3], { expires: 60, path: '/', domain: 'scaler.sariel.pl' });
+      }
+      else
+        $.cookie("modelscalerlastused", $("#blueprint").val() + '^', { expires: 60, path: '/', domain: 'scaler.sariel.pl' });
+    }
+  });
+
     // reset to original size
 	$('#refit').click(function(event) {
 		$("#canvas").html("<img src='" + $("#blueprint").val() + "' alt=''>");
@@ -500,8 +533,6 @@ $(document).ready(function(){
 				$("#lastused").slideUp('fast');
 			}
     });
-
-});
 
 var Ruler = function (elem) {
   elem = $(elem);

@@ -33,7 +33,8 @@
                       <div class="modal-body">
                         You can save up to three various blueprints with all measurements in your browser. Please note
                         that these will only be available in your current browser, and that loading a save overwrites
-                        the current canvas content.
+                        the current canvas content. Also, if you've uploaded image from your device, it will not be
+                        included in the save.
 
                         <?php
                           for ($i = 1; $i <= 3; $i++) {
@@ -100,7 +101,16 @@
                     <div class="input-group mb-3 mt-2">
                       <input type="text" id="blueprint" class="form-control">
                       <div class="input-group-append">
-                        <input type="submit" id="blueprint-submit" value=" Load &raquo; " class="btn btn-success text-uppercase">
+                        <input type="submit" id="blueprint-submit" value="Load" class="btn btn-success text-uppercase">
+                      </div>
+                    </div>
+
+                    Or upload an image from your device:
+
+                    <div class="input-group mb-3 mt-2">
+                      <input accept="image/*" type="file" id="blueprint-local" class="form-control">
+                      <div class="input-group-append">
+                        <input type="submit" id="blueprint-upload" value="Upload" class="btn btn-success text-uppercase">
                       </div>
                     </div>
 
@@ -429,7 +439,7 @@
   ?>
   <script src="raphael.packed.js"></script>
   <script src="jquery.cookie.js"></script>
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 
   </div>
 
