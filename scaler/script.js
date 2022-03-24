@@ -33,6 +33,7 @@ $(document).ready(function(){
       }
   });
 
+  // protractor lines transparency
   $('#shards-custom-slider .noUi-handle').mouseup(function(e) {
     changeTransparency();
     $("svg line").last().attr("opacity", "1.0");
@@ -117,10 +118,8 @@ $(document).ready(function(){
         newLine.setAttribute('x2', endPoint.left + 2);
         newLine.setAttribute('y2', endPoint.top + 2);
         newLine.setAttribute('stroke-width', 2);
-        newLine.setAttribute("stroke", "black");
+        newLine.setAttribute("stroke", $('#colors').val());
         svg.appendChild(newLine);
-        console.log($("svg").html());
-        console.log($("#labels").html());
       }
 
       // calculate distance and angle
@@ -162,7 +161,7 @@ $(document).ready(function(){
 
       $("svg path").last().remove();
   		$(".hlabel").last().remove();
-  		$(".vlabel").last().text("").css("border-radius", "3px").addClass("anglePoint");
+  		$(".vlabel").last().text("").css({"border-radius": "3px", "background-color": $("#colors").val()}).addClass("anglePoint");
     }
   });
 
@@ -208,10 +207,20 @@ $(document).ready(function(){
     var originaldimension = $("#originaldimension").val();
     var svgContent = $("#paper svg").html();
     var labelContent = $("#labels").html();
+    var colors = $("#colors").val();
+    var labelColors = $("#labelColors").val();
     var separator = "^";
-    var saveString = date + separator + blueprintLink + separator + svgContent + separator + labelContent
-                   + separator + blueprintSize + separator + ratioSize + separator + ratioType  + separator + ratio
-                   + separator + originaldimension;
+    var saveString = date + separator
+                   + blueprintLink + separator
+                   + svgContent + separator
+                   + labelContent + separator
+                   + blueprintSize + separator
+                   + ratioSize + separator
+                   + ratioType  + separator
+                   + ratio + separator
+                   + originaldimension + separator
+                   + colors + separator
+                   + labelColors;
     localStorage.setItem("afolscaler" + id, saveString);
     loadSaves();
   });
@@ -224,16 +233,18 @@ $(document).ready(function(){
       var parts = save.split("^");
       var sizes = parts[4].split("x");
       $("#blueprint").val(parts[1]);
-      $("#canvas").html("<img src='" + parts[1] + "' alt=''>");
+      $("#canvas").html("<img src='" + parts[1] + "' alt='' style='width: " + sizes[0] + "; height: " + sizes[1] + "'>");
       $("#blueprint-submit").trigger("click");
-      $("#canvas img").css("width", sizes[0]);
-      $("#canvas img").css("height", sizes[1]);
       $("svg").html(parts[2]);
       $("#labels").html(parts[3]);
       $("#ratio").val(parts[7]);
       $("#ratio-size").val(parts[5]);
       $("#ratio-type").val(parts[6]);
       $("#originaldimension").val(parts[8]);
+      $("#colors").val(parts[9]);
+      $("#color").val(parts[9]);
+      $("#labelColors").val(parts[10]);
+      $("#labelcolor").val(parts[10]);
       getRatio();
       $("#closeModal").trigger("click");
     }
@@ -597,14 +608,14 @@ Ruler.methods = {
       vt = (this.start_at.top + top)/2;
     }
 
-		var mxsize = Math.round((parseInt(this.dx) * $("#ratio").val()) * $('#units').val() * $('#accuracy').val())/$('#accuracy').val();
+		var mxsize = Number((parseInt(this.dx) * $("#ratio").val() * $('#units').val()).toFixed($('#accuracy').val()));
 		if (mxsize<0){
 			mxsize = (mxsize * -1)}
 		var txsize	= this.dx;
 		if (txsize<0){
 			txsize = (txsize * -1)}
 
-		var mysize = Math.round((parseInt(this.dy) * $("#ratio").val()) * $('#units').val() * $('#accuracy').val())/$('#accuracy').val();
+    var mysize = Number((parseInt(this.dy) * $("#ratio").val() * $('#units').val()).toFixed($('#accuracy').val()));
 		if (mysize<0){
 			mysize = (mysize * -1)}
 		var tysize	= this.dy;
