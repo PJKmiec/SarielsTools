@@ -3,7 +3,7 @@
   define("TITLE", "LEGO Model Scaler");
   require_once('../common/php/header.php');
  ?>
- <link rel="stylesheet" href="style.css?ver=5">
+ <link rel="stylesheet" href="style.css?ver=6">
 
           <div class="main-content-container container-fluid px-0">
             <!-- Page Header -->
