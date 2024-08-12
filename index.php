@@ -81,6 +81,21 @@
 
                         <tr>
                           <td class="text-left align-middle">
+                            <a href="http://mocs.sariel.pl"><span class="material-icons align-middle mr-2">list_alt</span> MOC Manager</a>
+                          </td>
+                          <td class="text-left align-middle">
+                            Allows creating and sorting a detailed list of your projects.
+                          </td>
+                          <td class="align-middle">
+                            N/A
+                          </td>
+                          <td class="align-middle">
+                            <a href="http://mocs.sariel.pl">mocs.sariel.pl</a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="text-left align-middle">
                             <a href="http://studs.sariel.pl"><span class="material-icons align-middle mr-2">flip</span> Unit Converter</a>
                           </td>
                           <td class="text-left align-middle">
@@ -91,6 +106,20 @@
                           </td>
                           <td class="align-middle">
                             <a href="http://studs.sariel.pl">studs.sariel.pl</a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="text-left align-middle">
+                            <a href="http://colors.sariel.pl"><span class="material-icons align-middle mr-2">invert_colors</span> Colors Checker</a>
+                          </td>
+                          <td class="text-left align-middle">
+                            Check for shared common colors between up to 6 various LEGO pieces.
+                          </td>
+                          <td class="align-middle">
+                            N/A                          </td>
+                          <td class="align-middle">
+                            <a href="http://colors.sariel.pl">colors.sariel.pl</a>
                           </td>
                         </tr>
 

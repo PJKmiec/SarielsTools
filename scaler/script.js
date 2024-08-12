@@ -283,7 +283,6 @@ $(document).ready(function(){
     var file = $("#blueprint-local").get(0).files[0];
     if (file) {
       $("#canvas").html("<img src='' alt=''>");
-      console.log("x");
       var reader = new FileReader();
 
       reader.onload = function(){
