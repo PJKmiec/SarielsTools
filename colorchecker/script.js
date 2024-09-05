@@ -212,13 +212,11 @@ $(document).ready(function() {
   "Mx Foil Orange": "F7AD63"
 };
 
-
-
-var htmlString = `<div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+var htmlString = `<a class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2" href="https://rebrickable.com/parts/PARTID/colors/COLORID">
                                     HEX
                                     <div class="mr-3">CLR</div>
                                     <div class="text-right">QNT</div>
-                                </div>`;
+                                </a>`;
 
 var htmlString2 = `<div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
                                                                     HEX
@@ -259,6 +257,8 @@ var commonColors = new Map();
                 let qntString = (item["num_sets"] > 1) ? item["num_sets"] + " sets" : item["num_sets"] + " set";
 
                 var output = htmlString
+                  .replace('PARTID', $("#itemId" + index).val())
+                  .replace('COLORID', item["color_id"])
                   .replace('HEX', '<div style="background-color: #' + hexes[item["color_name"]] + '; width: 20px; height: 20px; border-radius: 10px;"></div>')
                   .replace('CLR', item["color_name"])
                   .replace('QNT', qntString);
@@ -315,12 +315,13 @@ var commonColors = new Map();
   }
 
   // check them colors!
-$("#getColors").click(async function(){
-    $(this).text("Checking...").prop("disabled", true);
+$("#colorCheckerForm").submit(async function(e){
+    $("#getColors").text("Checking...").prop("disabled", true);
     $(".resultCard").html("");
     $(".resultImg").html("");
     $("#result").html("");
     run();
+    e.preventDefault();
 });
 
 });

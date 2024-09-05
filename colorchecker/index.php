@@ -22,6 +22,7 @@
             </div>
 
             <!-- Default Light Table -->
+            <form action="checkColors" method="post" id="colorCheckerForm">
             <div class="row px-4">
 
               <?php
@@ -58,8 +59,8 @@
                 </div>
               </div>
 
-
             </div>
+          </form>
             <!-- End Default Light Table -->
 
           </div>
