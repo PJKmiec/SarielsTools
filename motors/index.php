@@ -148,7 +148,7 @@ require_once('../common/php/header.php');
 require_once('../common/php/footerScripts.php');
 ?>
 <script src="chart.js/Chart.min.js"></script>
-<script src="deferred.js"></script>
+<script src="chart.js/deferred.js"></script>
 <script src="script.js"></script>
 </div>
 

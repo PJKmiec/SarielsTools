@@ -25,6 +25,15 @@ $(document).ready(function() {
     return s.join(dec);
   }
 
+  let maxes = {
+    "torque": 17.3,
+    "speed": 2000,
+    "mechanical_power": 4.61,
+    "size": 590,
+    "weight": 269,
+    "efficiency": 56,
+  };
+
   let motors = [
     {
       "name": "EV3 L",
@@ -927,6 +936,42 @@ $(document).ready(function() {
       }
     },
     {
+      "name": "Spike S",
+      "image": "mspikes",
+      "bl_id": "68488c01",
+      "type": "Spike",
+      "torque": "?",
+      "p9v": {
+        "speed": "?",
+        "mechanical_power": "?",
+        "efficiency": "?"
+      },
+      "p7v": {
+        "speed": "?",
+        "mechanical_power": "?",
+        "efficiency": "?"
+      },
+      "dimensions": "3x4x5",
+      "volume": 60,
+      "weight": 23,
+      "noload_current": "?",
+      "stalled_current": "?",
+      "input": "permanently attached wire with Mindstorms plug",
+      "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
+      "start": 2021,
+      "end": 2021,
+      "sets": 2,
+      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds": {
+        "No load": [100, 115, 120, 155, 122, 134],
+        "50g load": [100, 115, 120, 155, 122, 134],
+        "100g load": [100, 115, 120, 155, 122, 134],
+        "250g load": [100, 115, 120, 155, 122, 134],
+        "500g load": [100, 115, 120, 155, 122, 134],
+        "1000g load": [100, 115, 120, 155, 122, 134]
+      }
+    },
+    {
       "name": "Powered Up 3-motors Hub",
       "image": "103479c01",
       "bl_id": "103479c01",
@@ -1120,6 +1165,20 @@ $(document).ready(function() {
         break;
     }
 
+    let canvasHeight = 60;
+
+    if (motor.speeds_labels.length == 1) {
+      canvasHeight = 20;
+    }
+
+    let radarValues = '[' +
+      Math.round(motor.torque / maxes.torque * 100) + ', ' +
+      Math.round(motor.p9v.speed / maxes.speed * 100) + ', ' +
+      Math.round(motor.p9v.mechanical_power / maxes.mechanical_power * 100) + ', ' +
+      Math.round(motor.volume / maxes.size * 100) + ', ' +
+      Math.round(motor.weight / maxes.weight * 100) + ', ' +
+      Math.round(motor.p9v.efficiency / maxes.efficiency * 100) + ']';
+
     let tr = `<tr>
                                         <td><img src="img/` + motor.image + `.png" width="80" height="80"></td>
                                         <td class="align-middle font-weight-bold">` + motor.name + `</td>
@@ -1166,15 +1225,50 @@ $(document).ready(function() {
 
                                           <div class="row">
                                             <div class="col-8">
-                                              <div class="chart-area" style="height: 60rem;">
+                                              <div class="chart-area" style="height: ` + canvasHeight + `rem;">
                                                 <canvas id="speeds-1-` + motor.bl_id + `"></canvas>
                                               </div>
                                             </div>
                                             <div class="col-4">
 
+                                            <canvas id="radar-` + motor.bl_id + `" class="mt-3" width="400" height="400"></canvas>
+                                               <script>
+                                                  var chrt = document.getElementById("radar-` + motor.bl_id + `").getContext("2d");
+                                                  var chartId = new Chart(chrt, {
+                                                     type: 'polarArea',
+                                                     data: {
+                                                        labels: ["Torque", "Speed", "Mech. power", "Size", "Weight", "Efficiency"],
+                                                        datasets: [{
+                                                           label: "Percentile compared to all motors",
+                                                           data: ` + radarValues + `,
+                                                           backgroundColor: ['rgba(196, 24, 60, 0.3)', 'rgba(255, 180, 0, 0.3)', 'rgba(23, 198, 113, 0.3)', 'rgba(0, 184, 216, 0.3)', 'rgba(0, 123, 255, 0.3)', 'rgba(102, 16, 242, 0.3)'],
+                                                           hoverBackgroundColor: ['rgba(196, 24, 60, 0.9)', 'rgba(255, 180, 0, 0.9)', 'rgba(23, 198, 113, 0.9)', 'rgba(0, 184, 216, 0.9)', 'rgba(0, 123, 255, 0.9)', 'rgba(102, 16, 242, 0.9)'],
+                                                           borderColor: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF'],
+                                                           borderWidth: 1,
+                                                        }],
+                                                     },
+                                                     options: {
+                                                        responsive: true,
+                                                        tooltips: {
+                                                          enabled: true,
+                                                          mode: 'single',
+                                                          callbacks: {
+                                                            label: function(tooltipItems, data) {
+                                                              return data.labels[tooltipItems.index] + ": " + tooltipItems.yLabel + ' percentile';
+                                                            }
+                                                          },
+                                                        },
+                                                        elements: {
+                                                           line: {
+                                                              borderWidth: 6
+                                                           }
+                                                        }
+                                                     },
+                                                  });
+                                               </script>
+
                                             </div>
                                           </div>
-
 
                                           </div>
                                         </td>
