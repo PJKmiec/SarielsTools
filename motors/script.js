@@ -47,8 +47,8 @@ $(document).ready(function() {
       "weight": 82,
       "noload_current": 60,
       "stalled_current": 1800,
-      "input": "permanently attached wire with Mindstorms plug",
-      "output": "open axle hole, 3 studs deep, with 4 pin holes around it",
+      "input": "Mindstorms-type socket",
+      "output": "two-sided 3x3 round brick with 3-studs-deep axle hole going through it and 4 pin holes around it on either side",
       "start": 2013,
       "end": 2016,
       "sets": 3,
@@ -84,7 +84,7 @@ $(document).ready(function() {
       "noload_current": 60,
       "stalled_current": 2000,
       "input": "permanently attached wire with Mindstorms plug",
-      "output": "open axle hole, 3 studs deep, with 4 pin holes around it",
+      "output": "two-sided 3x3 round brick with 3-studs-deep axle hole going through it and 4 pin holes around it on either side",
       "start": 2006,
       "end": 2014,
       "sets": 4,
@@ -228,7 +228,7 @@ $(document).ready(function() {
       "noload_current": 110,
       "stalled_current": 1800,
       "input": "permanently attached wire with Mindstorms plug",
-      "output": "open axle hole, 3 studs deep, with 4 pin holes around it",
+      "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2020,
       "end": 2023,
       "sets": 4,
@@ -264,7 +264,7 @@ $(document).ready(function() {
       "noload_current": 110,
       "stalled_current": 1800,
       "input": "permanently attached wire with Mindstorms plug",
-      "output": "open axle hole, 3 studs deep, with 4 pin holes around it",
+      "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2020,
       "end": 2021,
       "sets": 4,
@@ -408,7 +408,7 @@ $(document).ready(function() {
       "noload_current": 100,
       "stalled_current": 850,
       "input": "permanently attached wire with Mindstorms plug",
-      "output": "open axle hole, 3 studs deep, with 4 pin holes around it",
+      "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2020,
       "end": 2021,
       "sets": 4,
@@ -926,6 +926,42 @@ $(document).ready(function() {
         "1000g load": [100, 115, 120, 155, 122, 134]
       }
     },
+    {
+      "name": "Powered Up 3-motors Hub",
+      "image": "103479c01",
+      "bl_id": "103479c01",
+      "type": "Powered Up",
+      "torque": "?",
+      "p9v": {
+        "speed": "?",
+        "mechanical_power": "?",
+        "efficiency": "?"
+      },
+      "p7v": {
+        "speed": "?",
+        "mechanical_power": "?",
+        "efficiency": "?"
+      },
+      "dimensions": "16x7x5",
+      "volume": 560,
+      "weight": 269,
+      "noload_current": "?",
+      "stalled_current": "?",
+      "input": "proprietary connector for rechargeable Powered Up battery #109481c01",
+      "output": "5 1-stud-deep axle holes, one in front, two in the back (coupled two per motor)",
+      "start": 2024,
+      "end": 2024,
+      "sets": 1,
+      "speeds_labels": ["Rechargeable Powered Up battery"],
+      "speeds": {
+        "No load": [100],
+        "50g load": [100],
+        "100g load": [100],
+        "250g load": [100],
+        "500g load": [100],
+        "1000g load": [100]
+      }
+    },
   ];
 
   // initial draw
@@ -1047,7 +1083,7 @@ $(document).ready(function() {
     return filteredMotors;
   }
 
-  $('.dataToggler').click(function() {
+  $('body').on('click', '.dataToggler', function() {
     let id = $(this).attr("id").split('-')[1];
     $('#data-' + id).toggleClass("d-none");
 
@@ -1128,9 +1164,17 @@ $(document).ready(function() {
                                             <div class="col-3"></div>
                                           </div>
 
+                                          <div class="row">
+                                            <div class="col-8">
                                               <div class="chart-area" style="height: 60rem;">
                                                 <canvas id="speeds-1-` + motor.bl_id + `"></canvas>
-                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-4">
+
+                                            </div>
+                                          </div>
+
 
                                           </div>
                                         </td>
@@ -1142,7 +1186,6 @@ $(document).ready(function() {
   }
 
   function createDatasets(labels, values) {
-    console.log(Object.values(values)[0]);
     let barColors = [
       'rgba(212, 249, 255, 1)',
       'rgba(128, 236, 255, 1)',
@@ -1153,22 +1196,21 @@ $(document).ready(function() {
 
     let datasets = [];
 
-    for (let i = 0; i < Object.values(values).length; i++) {
+    for (let i = 0; i < values['No load'].length; i++) {
+      let data = [];
+      for (let j = 0; j < Object.values(values).length; j++) {
+        data.push(Object.values(values)[j][i])
+      }
+
       datasets.push({
           label: labels[i],
           backgroundColor: barColors[i],
           hoverBackgroundColor: barColors[i],
           borderColor: barColors[i],
           borderWidth: 1,
-          data: Object.values(values)[i]
+          data: data
         });
     }
-
-
-
-
-
-
     return datasets;
   }
 
