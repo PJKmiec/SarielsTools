@@ -1223,7 +1223,7 @@ $(document).ready(function() {
                                             <div class="col-3"></div>
                                           </div>
 
-                                          <div class="row">
+                                          <div class="row mt-4">
                                             <div class="col-8">
                                               <div class="chart-area" style="height: ` + canvasHeight + `rem;">
                                                 <canvas id="speeds-1-` + motor.bl_id + `"></canvas>
@@ -1249,6 +1249,12 @@ $(document).ready(function() {
                                                      },
                                                      options: {
                                                         responsive: true,
+                                                        legend: {
+                                                          display: true,
+                                                          labels: {
+                                                            usePointStyle: true,
+                                                          },
+                                                        },
                                                         tooltips: {
                                                           enabled: true,
                                                           mode: 'single',
