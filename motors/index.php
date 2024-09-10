@@ -74,6 +74,7 @@ require_once('../common/php/header.php');
             <option value="efficiency_d">Most efficient first</option>
             <option value="volume_d">Biggest first</option>
             <option value="weight_d">Heaviest first</option>
+            <option value="noise_d">Loudest first</option>
             <option value="start_d">Newest first</option>
             <option value="sets_d">In most sets first</option>
             <option value="torque_a">Weakest first</option>
@@ -82,6 +83,7 @@ require_once('../common/php/header.php');
             <option value="efficiency_a">Least efficient first</option>
             <option value="volume_a">Smallest first</option>
             <option value="weight_a">Lightest first</option>
+            <option value="noise_a">Quietest first</option>
             <option value="start_a">Oldest first</option>
             <option value="sets_a">In least sets first</option>
           </select>
@@ -140,7 +142,7 @@ require_once('../common/php/header.php');
   <div class="text-center p-3">
     <img src="http://tools.sariel.pl/common/hamstur.gif" width="48" height="48">
     Powered by hamsters | Developed by <a href="http://sariel.pl">Sariel</a> |
-    Uses <a href="https://rebrickable.com/api/">Rebrickable API</a> & <a href="https://designrevision.com/downloads/shards/">Bootstrap Shards</a>
+    Uses <a href="https://designrevision.com/downloads/shards/">Bootstrap Shards</a>
   </div>
   <!-- Copyright -->
 </footer>

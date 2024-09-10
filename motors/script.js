@@ -32,6 +32,7 @@ $(document).ready(function() {
     "size": 590,
     "weight": 269,
     "efficiency": 56,
+    "noise_level": 80,
   };
 
   let motors = [
@@ -54,6 +55,7 @@ $(document).ready(function() {
       "dimensions": "5x7x13.5",
       "volume": 472.5,
       "weight": 82,
+      "noise_level": 40,
       "noload_current": 60,
       "stalled_current": 1800,
       "input": "Mindstorms-type socket",
@@ -90,6 +92,7 @@ $(document).ready(function() {
       "dimensions": "5x7x13.5",
       "volume": 472.5,
       "weight": 80,
+      "noise_level": 30,
       "noload_current": 60,
       "stalled_current": 2000,
       "input": "permanently attached wire with Mindstorms plug",
@@ -126,6 +129,7 @@ $(document).ready(function() {
       "dimensions": "5x5x6",
       "volume": 150,
       "weight": 69,
+      "noise_level": 12,
       "noload_current": 80,
       "stalled_current": 1800,
       "input": "permanently attached wire with Mindstorms plug",
@@ -162,6 +166,7 @@ $(document).ready(function() {
       "dimensions": "3x4x8",
       "volume": 96,
       "weight": 53,
+      "noise_level": 30,
       "noload_current": 120,
       "stalled_current": 1400,
       "input": "permanently attached wire with Mindstorms plug",
@@ -198,6 +203,7 @@ $(document).ready(function() {
       "dimensions": "5x5x8",
       "volume": 200,
       "weight": 76,
+      "noise_level": 30,
       "noload_current": 60,
       "stalled_current": 1100,
       "input": "permanently attached wire with Mindstorms plug",
@@ -234,6 +240,7 @@ $(document).ready(function() {
       "dimensions": "5x4x10",
       "volume": 200,
       "weight": 71,
+      "noise_level": 30,
       "noload_current": 110,
       "stalled_current": 1800,
       "input": "permanently attached wire with Mindstorms plug",
@@ -270,6 +277,7 @@ $(document).ready(function() {
       "dimensions": "5x4x10",
       "volume": 200,
       "weight": 71,
+      "noise_level": 30,
       "noload_current": 110,
       "stalled_current": 1800,
       "input": "permanently attached wire with Mindstorms plug",
@@ -306,6 +314,7 @@ $(document).ready(function() {
       "dimensions": "3x4x9",
       "volume": 108,
       "weight": 39,
+      "noise_level": 30,
       "noload_current": 80,
       "stalled_current": 780,
       "input": "permanently attached wire with Mindstorms plug",
@@ -342,6 +351,7 @@ $(document).ready(function() {
       "dimensions": "3x4x7",
       "volume": 84,
       "weight": 42,
+      "noise_level": 30,
       "noload_current": 120,
       "stalled_current": 1300,
       "input": "permanently attached wire with Mindstorms plug",
@@ -378,6 +388,7 @@ $(document).ready(function() {
       "dimensions": "5x5.5x11",
       "volume": 302.5,
       "weight": 55,
+      "noise_level": 16,
       "noload_current": 160,
       "stalled_current": 3200,
       "input": "permanently attached wire with Mindstorms plug",
@@ -414,6 +425,7 @@ $(document).ready(function() {
       "dimensions": "3x4x10",
       "volume": 120,
       "weight": 49,
+      "noise_level": 30,
       "noload_current": 100,
       "stalled_current": 850,
       "input": "permanently attached wire with Mindstorms plug",
@@ -450,6 +462,7 @@ $(document).ready(function() {
       "dimensions": "3x4x6",
       "volume": 72,
       "weight": 43,
+      "noise_level": 30,
       "noload_current": 41,
       "stalled_current": 450,
       "input": "permanently attached wire with Mindstorms plug",
@@ -486,6 +499,7 @@ $(document).ready(function() {
       "dimensions": "3x3x6",
       "volume": 54,
       "weight": 34,
+      "noise_level": 30,
       "noload_current": 60,
       "stalled_current": 800,
       "input": "permanently attached wire with Mindstorms plug",
@@ -522,6 +536,7 @@ $(document).ready(function() {
       "dimensions": "3x3x6",
       "volume": 54,
       "weight": 31,
+      "noise_level": 11,
       "noload_current": 65,
       "stalled_current": 850,
       "input": "permanently attached wire with Mindstorms plug",
@@ -558,6 +573,7 @@ $(document).ready(function() {
       "dimensions": "4x4x4",
       "volume": 64,
       "weight": 28,
+      "noise_level": 30,
       "noload_current": 9,
       "stalled_current": 340,
       "input": "permanently attached wire with Mindstorms plug",
@@ -594,6 +610,7 @@ $(document).ready(function() {
       "dimensions": "4x4x4",
       "volume": 64,
       "weight": 40,
+      "noise_level": 30,
       "noload_current": 31,
       "stalled_current": 580,
       "input": "permanently attached wire with Mindstorms plug",
@@ -630,6 +647,7 @@ $(document).ready(function() {
       "dimensions": "4x4x4",
       "volume": 64,
       "weight": 42,
+      "noise_level": 30,
       "noload_current": 3.5,
       "stalled_current": 360,
       "input": "permanently attached wire with Mindstorms plug",
@@ -666,6 +684,7 @@ $(document).ready(function() {
       "dimensions": "3x4x6",
       "volume": 72,
       "weight": 50,
+      "noise_level": 30,
       "noload_current": 17.5,
       "stalled_current": 410,
       "input": "permanently attached wire with Mindstorms plug",
@@ -702,6 +721,7 @@ $(document).ready(function() {
       "dimensions": "2x2x3",
       "volume": 12,
       "weight": 10,
+      "noise_level": 30,
       "noload_current": 6,
       "stalled_current": 80,
       "input": "permanently attached wire with Mindstorms plug",
@@ -738,6 +758,7 @@ $(document).ready(function() {
       "dimensions": "3x4x11",
       "volume": 132,
       "weight": 72,
+      "noise_level": 30,
       "noload_current": 90,
       "stalled_current": 950,
       "input": "permanently attached wire with Mindstorms plug",
@@ -774,6 +795,7 @@ $(document).ready(function() {
       "dimensions": "3x4x11",
       "volume": 132,
       "weight": 57,
+      "noise_level": 30,
       "noload_current": 100,
       "stalled_current": 1100,
       "input": "permanently attached wire with Mindstorms plug",
@@ -810,6 +832,7 @@ $(document).ready(function() {
       "dimensions": "3x4x11",
       "volume": 132,
       "weight": 57,
+      "noise_level": 30,
       "noload_current": 90,
       "stalled_current": 1300,
       "input": "permanently attached wire with Mindstorms plug",
@@ -846,6 +869,7 @@ $(document).ready(function() {
       "dimensions": "3x4x11",
       "volume": 132,
       "weight": 53,
+      "noise_level": 30,
       "noload_current": 90,
       "stalled_current": 750,
       "input": "permanently attached wire with Mindstorms plug",
@@ -882,6 +906,7 @@ $(document).ready(function() {
       "dimensions": "3x4x5",
       "volume": 60,
       "weight": 48,
+      "noise_level": 30,
       "noload_current": 35,
       "stalled_current": 700,
       "input": "permanently attached wire with Mindstorms plug",
@@ -918,6 +943,7 @@ $(document).ready(function() {
       "dimensions": "3x5x7",
       "volume": 105,
       "weight": 44,
+      "noise_level": 30,
       "noload_current": "?",
       "stalled_current": "?",
       "input": "permanently attached wire with Mindstorms plug",
@@ -954,6 +980,7 @@ $(document).ready(function() {
       "dimensions": "3x4x5",
       "volume": 60,
       "weight": 23,
+      "noise_level": 30,
       "noload_current": "?",
       "stalled_current": "?",
       "input": "permanently attached wire with Mindstorms plug",
@@ -990,6 +1017,7 @@ $(document).ready(function() {
       "dimensions": "16x7x5",
       "volume": 560,
       "weight": 269,
+      "noise_level": 30,
       "noload_current": "?",
       "stalled_current": "?",
       "input": "proprietary connector for rechargeable Powered Up battery #109481c01",
@@ -1054,6 +1082,9 @@ $(document).ready(function() {
       case "weight_d":
         motors = motors.sort((m1, m2) => (m1.weight < m2.weight) ? 1 : (m1.weight > m2.weight) ? -1 : 0);
         break;
+      case "noise_d":
+        motors = motors.sort((m1, m2) => (m1.noise_level < m2.noise_level) ? 1 : (m1.noise_level > m2.noise_level) ? -1 : 0);
+        break;
       case "start_d":
         motors = motors.sort((m1, m2) => (m1.start < m2.start) ? 1 : (m1.start > m2.start) ? -1 : 0);
         break;
@@ -1078,6 +1109,9 @@ $(document).ready(function() {
           break;
         case "weight_a":
           motors = motors.sort((m1, m2) => (m1.weight > m2.weight) ? 1 : (m1.weight < m2.weight) ? -1 : 0);
+          break;
+        case "noise_a":
+          motors = motors.sort((m1, m2) => (m1.noise_level > m2.noise_level) ? 1 : (m1.noise_level < m2.noise_level) ? -1 : 0);
           break;
         case "start_a":
           motors = motors.sort((m1, m2) => (m1.start > m2.start) ? 1 : (m1.start < m2.start) ? -1 : 0);
@@ -1177,7 +1211,9 @@ $(document).ready(function() {
       Math.round(motor.p9v.mechanical_power / maxes.mechanical_power * 100) + ', ' +
       Math.round(motor.volume / maxes.size * 100) + ', ' +
       Math.round(motor.weight / maxes.weight * 100) + ', ' +
-      Math.round(motor.p9v.efficiency / maxes.efficiency * 100) + ']';
+      Math.round(motor.p9v.efficiency / maxes.efficiency * 100) + ', ' +
+      Math.round(motor.noise_level / maxes.noise_level * 100) +
+      ']';
 
     let tr = `<tr>
                                         <td><img src="img/` + motor.image + `.png" width="80" height="80"></td>
@@ -1198,6 +1234,7 @@ $(document).ready(function() {
                                               <span class="text-muted"><i class="material-icons mr-2">bookmark</i>Bricklink ID:</span> ` + motor.bl_id + `<br>
                                               <span class="text-muted"><i class="material-icons mr-2">aspect_ratio</i>Dimensions:</span> ` + motor.dimensions + ` studs<br>
                                               <span class="text-muted"><i class="material-icons mr-2">scale</i>Weight:</span> ` + motor.weight + `g<br>
+                                              <span class="text-muted"><i class="material-icons mr-2">volume_up</i>Noise level:</span> ` + motor.noise_level + ` dB<br>
                                               <span class="text-muted"><i class="material-icons mr-2">electric_bolt</i>No-load current:</span> ` + motor.noload_current + ` mA<br>
                                               <span class="text-muted"><i class="material-icons mr-2">electric_bolt</i>Stalled current:</span> ` + motor.stalled_current + ` mA<br>
                                               <span class="text-muted"><i class="material-icons mr-2">input</i>Input:</span> ` + motor.input + `<br>
@@ -1231,19 +1268,19 @@ $(document).ready(function() {
                                             </div>
                                             <div class="col-4">
 
-                                            <canvas id="polar-` + motor.bl_id + `" class="mt-3" width="400" height="400"></canvas>
+                                            <canvas id="polar-` + motor.bl_id + `" class="my-4" width="400" height="400"></canvas>
                                                <script>
                                                   var chrt = document.getElementById("polar-` + motor.bl_id + `").getContext("2d");
                                                   var chartId = new Chart(chrt, {
                                                      type: 'polarArea',
                                                      data: {
-                                                        labels: ["Torque", "Speed", "Mech. power", "Size", "Weight", "Efficiency"],
+                                                        labels: ["Torque", "Speed", "Mech. power", "Size", "Weight", "Efficiency", "Noise level"],
                                                         datasets: [{
                                                            label: "Percentile compared to all motors",
                                                            data: ` + radarValues + `,
-                                                           backgroundColor: ['rgba(196, 24, 60, 0.3)', 'rgba(255, 180, 0, 0.3)', 'rgba(23, 198, 113, 0.3)', 'rgba(0, 184, 216, 0.3)', 'rgba(0, 123, 255, 0.3)', 'rgba(102, 16, 242, 0.3)'],
-                                                           hoverBackgroundColor: ['rgba(196, 24, 60, 0.9)', 'rgba(255, 180, 0, 0.9)', 'rgba(23, 198, 113, 0.9)', 'rgba(0, 184, 216, 0.9)', 'rgba(0, 123, 255, 0.9)', 'rgba(102, 16, 242, 0.9)'],
-                                                           borderColor: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF'],
+                                                           backgroundColor: ['rgba(196, 24, 60, 0.3)', 'rgba(255, 180, 0, 0.3)', 'rgba(23, 198, 113, 0.3)', 'rgba(0, 184, 216, 0.3)', 'rgba(0, 123, 255, 0.3)', 'rgba(102, 16, 242, 0.3)', 'rgba(214, 51, 132, 0.3)'],
+                                                           hoverBackgroundColor: ['rgba(196, 24, 60, 0.9)', 'rgba(255, 180, 0, 0.9)', 'rgba(23, 198, 113, 0.9)', 'rgba(0, 184, 216, 0.9)', 'rgba(0, 123, 255, 0.9)', 'rgba(102, 16, 242, 0.9)', 'rgba(214, 51, 132, 0.9)'],
+                                                           borderColor: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF'],
                                                            borderWidth: 1,
                                                         }],
                                                      },
@@ -1306,7 +1343,7 @@ $(document).ready(function() {
                                                            responsive: true,
                                                            title: {
                                                              display: true,
-                                                             text: 'Motor speed'
+                                                             text: 'Motor speed curves'
                                                             },
                                                            legend: {
                                                              display: true,
