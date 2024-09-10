@@ -1231,9 +1231,9 @@ $(document).ready(function() {
                                             </div>
                                             <div class="col-4">
 
-                                            <canvas id="radar-` + motor.bl_id + `" class="mt-3" width="400" height="400"></canvas>
+                                            <canvas id="polar-` + motor.bl_id + `" class="mt-3" width="400" height="400"></canvas>
                                                <script>
-                                                  var chrt = document.getElementById("radar-` + motor.bl_id + `").getContext("2d");
+                                                  var chrt = document.getElementById("polar-` + motor.bl_id + `").getContext("2d");
                                                   var chartId = new Chart(chrt, {
                                                      type: 'polarArea',
                                                      data: {
@@ -1249,6 +1249,10 @@ $(document).ready(function() {
                                                      },
                                                      options: {
                                                         responsive: true,
+                                                        title: {
+				                                                   display: true,
+				                                                   text: 'Motor characteristics in percentiles of all motors'
+                                                         },
                                                         legend: {
                                                           display: true,
                                                           labels: {
@@ -1272,6 +1276,71 @@ $(document).ready(function() {
                                                      },
                                                   });
                                                </script>
+
+                                               <canvas id="line-` + motor.bl_id + `" class="mt-3" width="400" height="400"></canvas>
+                                                  <script>
+                                                     var chrt = document.getElementById("line-` + motor.bl_id + `").getContext("2d");
+                                                     var chartId = new Chart(chrt, {
+                                                        type: 'line',
+                                                        data : {
+  			                                                     labels : ['None', '50g', '100g', '250g', '500g', '1000g'],
+                                                             datasets : [
+                                                               {
+                                                                 data : [100, 90, 75, 60, 50, 0],
+                                                                 label : "7.4V",
+                                                                 borderColor : "rgba(212, 249, 255, 1)",
+                                                                 borderWidth: 3,
+                                                                 pointBackgroundColor: "rgba(212, 249, 255, 1)",
+                                                                 fill : false
+                                                               },
+                                                               {
+                                                                 data : [120, 110, 90, 78, 69, 55],
+                                                                 label : "9V",
+                                                                 borderColor : "rgba(128, 236, 255, 1)",
+                                                                 borderWidth: 3,
+                                                                 pointBackgroundColor: "rgba(128, 236, 255, 1)",
+                                                                 fill : false
+                                                               },
+                                                              ]},
+                                                        options: {
+                                                           responsive: true,
+                                                           title: {
+                                                             display: true,
+                                                             text: 'Motor speed'
+                                                            },
+                                                           legend: {
+                                                             display: true,
+                                                             labels: {
+                                                               usePointStyle: true,
+                                                             },
+                                                           },
+                                                           scales: {
+                                                             xAxes: [
+                                                               {
+                                                                 scaleLabel: {
+                                                                   display: true,
+                                                                   labelString: 'Load'
+                                                                 }
+                                                              }
+                                                             ],
+                                                             yAxes: [
+                                                               {
+                                                                 ticks: {
+                                                                   callback: function(label, index, labels) {
+                                                                     return label +' RPM';
+                                                                   }
+                                                                 },
+                                                               }
+                                                             ]
+                                                           },
+                                                           elements: {
+                                                              line: {
+                                                                 borderWidth: 6
+                                                              }
+                                                           }
+                                                        },
+                                                     });
+                                                  </script>
 
                                             </div>
                                           </div>
@@ -1308,6 +1377,7 @@ $(document).ready(function() {
           hoverBackgroundColor: barColors[i],
           borderColor: barColors[i],
           borderWidth: 1,
+          maxBarThickness: 25,
           data: data
         });
     }
@@ -1324,6 +1394,10 @@ function drawChart(canvas, speeds, datasets) {
     },
     options: {
       maintainAspectRatio: false,
+      title: {
+         display: true,
+         text: 'Motor speeds with varying loads and power supplies'
+       },
       plugins: {
         deferred: {
           delay: 100
@@ -1346,7 +1420,6 @@ function drawChart(canvas, speeds, datasets) {
           ticks: {
             maxTicksLimit: 20
           },
-          maxBarThickness: 25,
         }],
         xAxes: [{
           type: 'linear',
