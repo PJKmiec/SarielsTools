@@ -58,19 +58,19 @@ $(document).ready(function() {
       "noise_level": 40,
       "noload_current": 60,
       "stalled_current": 1800,
-      "input": "Mindstorms-type socket",
+      "input": "EV3 Mindstorms-type socket",
       "output": "two-sided 3x3 round brick with 3-studs-deep axle hole going through it and 4 pin holes around it on either side",
       "start": 2013,
       "end": 2016,
       "sets": 3,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["Eneloop batteries", "Ni-Zn batteries", "Mindstorms rechargeable battery"],
       "speeds": {
-        "No load": [1, 2, 3, 4, 5, 6],
-        "50g load": [11, 12, 13, 14, 15, 16],
-        "100g load": [21, 22, 23, 24, 25, 26],
-        "250g load": [31, 32, 33, 34, 35, 36],
-        "500g load": [41, 42, 43, 44, 45, 46],
-        "1000g load": [51, 52, 53, 54, 55, 56]
+        "No load": [78, 105, 153],
+        "50g load": [11, 12, 13],
+        "100g load": [21, 22, 23],
+        "250g load": [31, 32, 33],
+        "500g load": [41, 42, 43],
+        "1000g load": [51, 52, 53]
       }
     },
     {
@@ -1358,16 +1358,22 @@ $(document).ready(function() {
     let bgColors = createShadesOfColor(Object.keys(data).length, 1);
     let datasets = [];
 
-    Object.keys(data).forEach(function(key,i) {
+    for (let i = 0; i < labels.length; i++) {
+
+      let parsedData = [];
+      for (let j = 0; j < Object.values(data).length; j++) {
+        parsedData.push(Object.values(data)[j][i])
+      }
+
       datasets.push({
-          data : data[key],
+          data : parsedData,
           label: labels[i],
           borderColor: bgColors[i],
           borderWidth: 3,
           pointBackgroundColor: bgColors[i],
           fill : false
         });
-      });
+    }
 
     return datasets;
   }
@@ -1689,8 +1695,6 @@ $(window).on('resize scroll', function() {
     links.removeClass('active');
     links.eq(8).addClass('active');
   }
-
-
 });
 
 $('#chartsMenu a').click(function(e){

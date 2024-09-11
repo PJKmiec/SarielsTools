@@ -22,7 +22,7 @@ require_once('../common/php/header.php');
           <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#motors">Motors list with stats</button>
         </li>
         <li class="nav-item" id="tabComparisons">
-          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#comparisons">All motors compared stats</button>
+          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#comparisons">Comparison of all motors</button>
         </li>
       </ul>
 
