@@ -1521,7 +1521,8 @@ function drawBarChart(canvas, title, leftLabel, suffix, labels, datasets) {
           datasets : datasets,
         },
      options: {
-        responsive: true,
+       responsive: true,
+       maintainAspectRatio: false,
         title: {
           display: true,
           text: title
@@ -1608,35 +1609,46 @@ function drawBarChart(canvas, title, leftLabel, suffix, labels, datasets) {
 //   }
 // },
 
-let motorTorques = [];
-let motorSpeeds = [];
+let motorTorques = new Map();
+let motorSpeeds = new Map();
 
 motors.forEach((motor, i) => {
-  if (motor.torque != "?") {
-    motorTorques[motor.name] = motor.torque;
-  }
-
-  if (motor.p9v.speed != "?") {
-    motorSpeeds[motor.name] = motor.p9v.speed;
-  }
+  fillMap(motor.name, motor.torque, motorTorques);
+  fillMap(motor.name, motor.p9v.speed, motorSpeeds);
 });
 
-console.log(motorTorques);
+motorTorques = sortMap(motorTorques);
+drawBarChart($('#totalTorque'), 'Motors by torque', 'Torque', 'N.cm', Array.from(motorTorques.keys()), createSingleDataset('Torque', motorTorques));
 
-let randomColors = [];
-for (let i = 0; i < Object.values(motorTorques).length; i++) {
-  randomColors.push('#' + Math.floor(Math.random()*16777215).toString(16))
+motorSpeeds = sortMap(motorSpeeds);
+
+function fillMap(name, value, map) {
+  if (value != "?") {
+    map.set(name, value);
+  }
 }
 
-let datasets = [{
-    data: Object.values(motorTorques),
-    label: "Torque",
-    borderColor: randomColors,
-    backgroundColor: randomColors,
-    borderWidth: 1,
-  }];
+function sortMap(map) {
+  return new Map([...map.entries()].sort((a, b) => b[1] - a[1]));
+}
 
-drawBarChart($('#totalTorque'), 'Motors by torque', 'Torque', 'N.cm', Object.keys(motorTorques), datasets);
+function createRandomColorsArray(size) {
+  let randomColors = [];
+  for (let i = 0; i < motorTorques.size; i++) {
+    randomColors.push('#' + Math.floor(Math.random()*16777215).toString(16))
+  }
+  return randomColors;
+}
 
+function createSingleDataset(label, values) {
+  let randomColors = createRandomColorsArray(values.size);
 
+  return [{
+      data: Array.from(values.values()),
+      label: label,
+      borderColor: randomColors,
+      backgroundColor: randomColors,
+      borderWidth: 1,
+    }];
+}
 });

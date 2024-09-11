@@ -196,8 +196,9 @@ require_once('../common/php/header.php');
                   </div>
                   <div class="card-body">
 
-                    <canvas id="totalTorque" class="mt-3"></canvas>
-
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalTorque" class="mt-3"></canvas>
+                    </div>
 
                   </div>
                 </div>
