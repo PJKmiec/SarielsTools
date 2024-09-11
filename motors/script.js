@@ -1278,7 +1278,7 @@ $(document).ready(function() {
                                                         datasets: [{
                                                            label: "Percentile compared to all motors",
                                                            data: ` + radarValues + `,
-                                                           backgroundColor: ['rgba(196, 24, 60, 0.3)', 'rgba(255, 180, 0, 0.3)', 'rgba(23, 198, 113, 0.3)', 'rgba(0, 184, 216, 0.3)', 'rgba(0, 123, 255, 0.3)', 'rgba(102, 16, 242, 0.3)', 'rgba(214, 51, 132, 0.3)'],
+                                                           backgroundColor: ['rgba(196, 24, 60, 0.5)', 'rgba(255, 180, 0, 0.5)', 'rgba(23, 198, 113, 0.5)', 'rgba(0, 184, 216, 0.5)', 'rgba(0, 123, 255, 0.5)', 'rgba(102, 16, 242, 0.5)', 'rgba(214, 51, 132, 0.5)'],
                                                            hoverBackgroundColor: ['rgba(196, 24, 60, 0.9)', 'rgba(255, 180, 0, 0.9)', 'rgba(23, 198, 113, 0.9)', 'rgba(0, 184, 216, 0.9)', 'rgba(0, 123, 255, 0.9)', 'rgba(102, 16, 242, 0.9)', 'rgba(214, 51, 132, 0.9)'],
                                                            borderColor: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF'],
                                                            borderWidth: 1,
@@ -1332,14 +1332,7 @@ $(document).ready(function() {
   }
 
   function createDatasets(labels, values) {
-    let barColors = [
-      'rgba(212, 249, 255, 1)',
-      'rgba(128, 236, 255, 1)',
-      'rgba(42, 224, 255, 1)',
-      'rgba(0, 181, 212, 1)',
-      'rgba(0, 109, 128, 1)',
-      'rgba(0, 36, 42, 1)'];
-
+    let barColors = createShadesOfColor(Object.keys(values).length, 1);
     let datasets = [];
 
     for (let i = 0; i < values['No load'].length; i++) {
@@ -1354,7 +1347,7 @@ $(document).ready(function() {
           hoverBackgroundColor: barColors[i],
           borderColor: barColors[i],
           borderWidth: 1,
-          maxBarThickness: 25,
+          maxBarThickness: 40,
           data: data
         });
     }
@@ -1362,15 +1355,7 @@ $(document).ready(function() {
   }
 
   function createDatasetsForLineCharts(labels, data) {
-    let bgColors = [
-      'rgba(196, 24, 60, 1)',
-      'rgba(255, 180, 0, 1)',
-      'rgba(23, 198, 113, 1)',
-      'rgba(0, 184, 216, 1)',
-      'rgba(0, 123, 255, 1)',
-      'rgba(102, 16, 242, 1)',
-      'rgba(214, 51, 132, 1)'];
-
+    let bgColors = createShadesOfColor(Object.keys(data).length, 1);
     let datasets = [];
 
     Object.keys(data).forEach(function(key,i) {
@@ -1428,7 +1413,7 @@ function drawChart(canvas, labels, datasets) {
           position: 'top',
           ticks: {
             beginAtZero: true,
-            maxTicksLimit: 5,
+            maxTicksLimit: 20,
             padding: 10,
             // Include a suffix in the ticks
             callback: function(value, index, values) {
@@ -1532,6 +1517,9 @@ function drawBarChart(canvas, title, leftLabel, suffix, labels, datasets) {
         },
         scales: {
           xAxes: [{
+            gridLines : {
+                display : false
+            },
             ticks: {
               maxTicksLimit: 40
             },
@@ -1570,57 +1558,58 @@ function drawBarChart(canvas, title, leftLabel, suffix, labels, datasets) {
 }
 
 // create data for comparison charts
-
-// {
-//   "name": "PF XL",
-//   "image": "mpfxl",
-//   "bl_id": "58121c01",
-//   "type": "Power Functions",
-//   "torque": 14.5,
-//   "p9v": {
-//     "speed": 146,
-//     "mechanical_power": 2.21,
-//     "efficiency": 45
-//   },
-//   "p7v": {
-//     "speed": 100,
-//     "mechanical_power": 1.51,
-//     "efficiency": 40
-//   },
-//   "dimensions": "5x5x6",
-//   "volume": 150,
-//   "weight": 69,
-//   "noise_level": 12,
-//   "noload_current": 80,
-//   "stalled_current": 1800,
-//   "input": "permanently attached wire with Mindstorms plug",
-//   "output": "1-stud-deep axle hole",
-//   "start": 2007,
-//   "end": 2017,
-//   "sets": 7,
-//   "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
-//   "speeds": {
-//     "No load": [100, 115, 120, 155, 122, 134],
-//     "50g load": [90, 100, 105, 130, 111, 117],
-//     "100g load": [80, 90, 96, 112, 107, 110],
-//     "250g load": [100, 115, 120, 155, 122, 134],
-//     "500g load": [100, 115, 120, 155, 122, 134],
-//     "1000g load": [100, 115, 120, 155, 122, 134]
-//   }
-// },
-
 let motorTorques = new Map();
 let motorSpeeds = new Map();
+let motorMPowers = new Map();
+let motorEfficiencies = new Map();
+let motorSizes = new Map();
+let motorWeights = new Map();
+let motorNoiseLevels = new Map();
+let motorYears = new Map();
+let motorSets = new Map();
 
 motors.forEach((motor, i) => {
+  let productionRun = (motor.end - motor.start < 1) ? 1 : (motor.end - motor.start);
+
   fillMap(motor.name, motor.torque, motorTorques);
   fillMap(motor.name, motor.p9v.speed, motorSpeeds);
+  fillMap(motor.name, motor.p9v.mechanical_power, motorMPowers);
+  fillMap(motor.name, motor.p9v.efficiency, motorEfficiencies);
+  fillMap(motor.name, motor.volume, motorSizes);
+  fillMap(motor.name, motor.weight, motorWeights);
+  fillMap(motor.name, motor.noise_level, motorNoiseLevels);
+  fillMap(motor.name, productionRun, motorYears);
+  fillMap(motor.name, motor.sets, motorSets);
 });
 
 motorTorques = sortMap(motorTorques);
 drawBarChart($('#totalTorque'), 'Motors by torque', 'Torque', 'N.cm', Array.from(motorTorques.keys()), createSingleDataset('Torque', motorTorques));
 
 motorSpeeds = sortMap(motorSpeeds);
+drawBarChart($('#totalSpeed'), 'Motors by speed', 'Speed', 'RPM', Array.from(motorSpeeds.keys()), createSingleDataset('Speed', motorSpeeds));
+
+motorMPowers = sortMap(motorMPowers);
+drawBarChart($('#totalMPower'), 'Motors by mechanical power', 'Mechanical power', 'W', Array.from(motorMPowers.keys()), createSingleDataset('Mechanical power', motorMPowers));
+
+motorEfficiencies = sortMap(motorEfficiencies);
+drawBarChart($('#totalEfficiency'), 'Motors by efficiency', 'Efficiency', '%', Array.from(motorEfficiencies.keys()), createSingleDataset('Efficiency', motorEfficiencies));
+
+motorSizes = sortMap(motorSizes);
+drawBarChart($('#totalSize'), 'Motors by size (in cubic studs)', 'Size', 'cubic studs', Array.from(motorSizes.keys()), createSingleDataset('Size', motorSizes));
+
+motorWeights = sortMap(motorWeights);
+drawBarChart($('#totalWeight'), 'Motors by weight', 'Weight', 'g', Array.from(motorWeights.keys()), createSingleDataset('Weight', motorWeights));
+
+motorNoiseLevels = sortMap(motorNoiseLevels);
+drawBarChart($('#totalNoiseLevel'), 'Motors by noise level', 'Noise level', 'dB', Array.from(motorNoiseLevels.keys()), createSingleDataset('Noise level', motorNoiseLevels));
+
+motorYears = sortMap(motorYears);
+drawBarChart($('#totalYears'), 'Motors by length of production run', 'Years', 'years', Array.from(motorYears.keys()), createSingleDataset('Years', motorYears));
+
+motorSets = sortMap(motorSets);
+drawBarChart($('#totalSets'), 'Motors by number of sets including them', 'Sets', '', Array.from(motorSets.keys()), createSingleDataset('Sets', motorSets));
+
+// ---------- HELPER METHODS ----------
 
 function fillMap(name, value, map) {
   if (value != "?") {
@@ -1632,23 +1621,84 @@ function sortMap(map) {
   return new Map([...map.entries()].sort((a, b) => b[1] - a[1]));
 }
 
-function createRandomColorsArray(size) {
-  let randomColors = [];
-  for (let i = 0; i < motorTorques.size; i++) {
-    randomColors.push('#' + Math.floor(Math.random()*16777215).toString(16))
+function createShadesOfColor(size, opacity) {
+  let core = [0, 184, 216];
+  let maxVariation = [212, 65, 39];
+  let start = [(core[0] + maxVariation[0]), (core[1] + maxVariation[1]), (core[2] + maxVariation[2])];
+
+  if (size == 1) {
+    return ['rgba(' + core[0] + ', ' + core[1] + ', ' + core[2] + ', ' + opacity + ')'];
   }
-  return randomColors;
+
+  let colors = [];
+  for (let i = 0; i < size; i++) {
+    let rgb = getHex(start[0] - (Math.round(maxVariation[0] / size * 4) * i)) + ', ' +
+              getHex(start[1] - (Math.round(maxVariation[1] / size * 4) * i)) + ', ' +
+              getHex(start[2] - (Math.round(maxVariation[2] / size * 4) * i));
+
+    colors.push('rgba(' + rgb + ', ' + opacity + ')');
+  }
+  return colors;
+}
+
+function getHex(number) {
+  number = (number < 0) ? 0 : number;
+  return number;
 }
 
 function createSingleDataset(label, values) {
-  let randomColors = createRandomColorsArray(values.size);
-
   return [{
       data: Array.from(values.values()),
-      label: label,
-      borderColor: randomColors,
-      backgroundColor: randomColors,
+      label: [label],
+      borderColor: createShadesOfColor(values.size, 1),
+      hoverBackgroundColor: createShadesOfColor(values.size, 1),
+      backgroundColor: createShadesOfColor(values.size, 0.5),
       borderWidth: 1,
     }];
 }
+
+$(window).on('resize scroll', function() {
+  var viewportTop = $(window).scrollTop();
+  let links = $('#chartsMenu a');
+
+  if (viewportTop < 300) {
+    links.removeClass('active');
+    links.eq(0).addClass('active');
+  } else if (viewportTop < 800) {
+    links.removeClass('active');
+    links.eq(1).addClass('active');
+  } else if (viewportTop < 1300) {
+    links.removeClass('active');
+    links.eq(2).addClass('active');
+  } else if (viewportTop < 1800) {
+    links.removeClass('active');
+    links.eq(3).addClass('active');
+  } else if (viewportTop < 2300) {
+    links.removeClass('active');
+    links.eq(4).addClass('active');
+  } else if (viewportTop < 2800) {
+    links.removeClass('active');
+    links.eq(5).addClass('active');
+  } else if (viewportTop < 3300) {
+    links.removeClass('active');
+    links.eq(6).addClass('active');
+  } else if (viewportTop < 3800) {
+    links.removeClass('active');
+    links.eq(7).addClass('active');
+  } else if (viewportTop < 4300) {
+    links.removeClass('active');
+    links.eq(8).addClass('active');
+  }
+
+
+});
+
+$('#chartsMenu a').click(function(e){
+  $('#chartsMenu a').removeClass('active');
+  $(this).addClass('active');
+  let position = $($(this).attr('href')).offset().top;
+  $('html, body').animate({scrollTop: position - 200}, 500);
+  e.preventDefault();
+});
+
 });

@@ -19,10 +19,10 @@ require_once('../common/php/header.php');
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#motors">All motors stats</button>
+          <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#motors">Motors list with stats</button>
         </li>
         <li class="nav-item" id="tabComparisons">
-          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#comparisons">Compared stats</button>
+          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#comparisons">All motors compared stats</button>
         </li>
       </ul>
 
@@ -173,13 +173,14 @@ require_once('../common/php/header.php');
 
                   <div class="list-group" id="chartsMenu">
                     <a class="list-group-item active" href="#totalTorque">Torque</a>
-                    <a class="list-group-item" href="">Speed</a>
-                    <a class="list-group-item" href="">Mechanical power</a>
-                    <a class="list-group-item" href="">Efficiency</a>
-                    <a class="list-group-item" href="">Size</a>
-                    <a class="list-group-item" href="">Weight</a>
-                    <a class="list-group-item" href="">Noise level</a>
-                    <a class="list-group-item" href="">Number of sets</a>
+                    <a class="list-group-item" href="#totalSpeed">Speed</a>
+                    <a class="list-group-item" href="#totalMPower">Mechanical power</a>
+                    <a class="list-group-item" href="#totalEfficiency">Efficiency</a>
+                    <a class="list-group-item" href="#totalSize">Size</a>
+                    <a class="list-group-item" href="#totalWeight">Weight</a>
+                    <a class="list-group-item" href="#totalNoiseLevel">Noise level</a>
+                    <a class="list-group-item" href="#totalYears">Length of production</a>
+                    <a class="list-group-item" href="#totalSets">Number of sets</a>
                   </div>
 
                 </div>
@@ -198,6 +199,38 @@ require_once('../common/php/header.php');
 
                     <div class="chart-area" style="height: 30rem;">
                       <canvas id="totalTorque" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalSpeed" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalMPower" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalEfficiency" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalSize" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalWeight" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalNoiseLevel" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalYears" class="mt-3"></canvas>
+                    </div>
+
+                    <div class="chart-area" style="height: 30rem;">
+                      <canvas id="totalSets" class="mt-3"></canvas>
                     </div>
 
                   </div>
