@@ -1315,69 +1315,6 @@ $(document).ready(function() {
                                                </script>
 
                                                <canvas id="line-` + motor.bl_id + `" class="mt-3" width="400" height="400"></canvas>
-                                                  <script>
-                                                     var chrt = document.getElementById("line-` + motor.bl_id + `").getContext("2d");
-                                                     var chartId = new Chart(chrt, {
-                                                        type: 'line',
-                                                        data : {
-  			                                                     labels : ['None', '50g', '100g', '250g', '500g', '1000g'],
-                                                             datasets : [
-                                                               {
-                                                                 data : [100, 90, 75, 60, 50, 0],
-                                                                 label : "7.4V",
-                                                                 borderColor : "rgba(212, 249, 255, 1)",
-                                                                 borderWidth: 3,
-                                                                 pointBackgroundColor: "rgba(212, 249, 255, 1)",
-                                                                 fill : false
-                                                               },
-                                                               {
-                                                                 data : [120, 110, 90, 78, 69, 55],
-                                                                 label : "9V",
-                                                                 borderColor : "rgba(128, 236, 255, 1)",
-                                                                 borderWidth: 3,
-                                                                 pointBackgroundColor: "rgba(128, 236, 255, 1)",
-                                                                 fill : false
-                                                               },
-                                                              ]},
-                                                        options: {
-                                                           responsive: true,
-                                                           title: {
-                                                             display: true,
-                                                             text: 'Motor speed curves'
-                                                            },
-                                                           legend: {
-                                                             display: true,
-                                                             labels: {
-                                                               usePointStyle: true,
-                                                             },
-                                                           },
-                                                           scales: {
-                                                             xAxes: [
-                                                               {
-                                                                 scaleLabel: {
-                                                                   display: true,
-                                                                   labelString: 'Load'
-                                                                 }
-                                                              }
-                                                             ],
-                                                             yAxes: [
-                                                               {
-                                                                 ticks: {
-                                                                   callback: function(label, index, labels) {
-                                                                     return label +' RPM';
-                                                                   }
-                                                                 },
-                                                               }
-                                                             ]
-                                                           },
-                                                           elements: {
-                                                              line: {
-                                                                 borderWidth: 6
-                                                              }
-                                                           }
-                                                        },
-                                                     });
-                                                  </script>
 
                                             </div>
                                           </div>
@@ -1388,7 +1325,10 @@ $(document).ready(function() {
 
     $("tbody").append(tr);
 
-    drawChart($('#speeds-1-' + motor.bl_id), motor.speeds, createDatasets(motor.speeds_labels, motor.speeds));
+    drawChart($('#speeds-1-' + motor.bl_id), Object.keys(motor.speeds), createDatasets(motor.speeds_labels, motor.speeds));
+
+    let lineLabels = ['None', '50g', '100g', '250g', '500g', '1000g'];
+    drawLineChart($('#line-' + motor.bl_id), 'Motor speed curves', 'Load', lineLabels, createDatasetsForLineCharts(motor.speeds_labels,  motor.speeds));
   }
 
   function createDatasets(labels, values) {
@@ -1421,12 +1361,37 @@ $(document).ready(function() {
     return datasets;
   }
 
+  function createDatasetsForLineCharts(labels, data) {
+    let bgColors = [
+      'rgba(196, 24, 60, 1)',
+      'rgba(255, 180, 0, 1)',
+      'rgba(23, 198, 113, 1)',
+      'rgba(0, 184, 216, 1)',
+      'rgba(0, 123, 255, 1)',
+      'rgba(102, 16, 242, 1)',
+      'rgba(214, 51, 132, 1)'];
 
-function drawChart(canvas, speeds, datasets) {
+    let datasets = [];
+
+    Object.keys(data).forEach(function(key,i) {
+      datasets.push({
+          data : data[key],
+          label: labels[i],
+          borderColor: bgColors[i],
+          borderWidth: 3,
+          pointBackgroundColor: bgColors[i],
+          fill : false
+        });
+      });
+
+    return datasets;
+  }
+
+function drawChart(canvas, labels, datasets) {
   new Chart(canvas, {
     type: 'horizontalBar',
     data: {
-      labels: Object.keys(speeds),
+      labels: labels,
       datasets: datasets,
     },
     options: {
@@ -1497,10 +1462,181 @@ function drawChart(canvas, speeds, datasets) {
       },
     }
   });
+};
 
-
+function drawLineChart(canvas, title, lowerLabel, labels, datasets) {
+  var chartId = new Chart(canvas, {
+     type: 'line',
+     data : {
+          labels : labels,
+          datasets : datasets,
+        },
+     options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: title
+         },
+        legend: {
+          display: true,
+          labels: {
+            usePointStyle: true,
+          },
+        },
+        scales: {
+          xAxes: [{
+            ticks: {
+              maxTicksLimit: 40
+            },
+              scaleLabel: {
+                display: true,
+                labelString: lowerLabel
+              }
+           }
+          ],
+          yAxes: [
+            {
+              ticks: {
+                callback: function(label, index, labels) {
+                  return label +' RPM';
+                }
+              },
+            }
+          ]
+        },
+        elements: {
+           line: {
+              borderWidth: 6
+           }
+        }
+     },
+  });
 }
 
+function drawBarChart(canvas, title, leftLabel, suffix, labels, datasets) {
+  var chartId = new Chart(canvas, {
+     type: 'bar',
+     data : {
+          labels : labels,
+          datasets : datasets,
+        },
+     options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: title
+         },
+        legend: {
+          display: false,
+        },
+        scales: {
+          xAxes: [{
+            ticks: {
+              maxTicksLimit: 40
+            },
+           }
+          ],
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: leftLabel
+              },
+              ticks: {
+                callback: function(label, index, labels) {
+                  return label + ' ' + suffix;
+                }
+              },
+            }
+          ]
+        },
+        tooltips: {
+          enabled: true,
+          mode: 'single',
+          callbacks: {
+            label: function(tooltipItems, data) {
+              return tooltipItems.yLabel + ' ' + suffix;
+            }
+          }
+        },
+        elements: {
+           line: {
+              borderWidth: 6
+           }
+        }
+     },
+  });
+}
+
+// create data for comparison charts
+
+// {
+//   "name": "PF XL",
+//   "image": "mpfxl",
+//   "bl_id": "58121c01",
+//   "type": "Power Functions",
+//   "torque": 14.5,
+//   "p9v": {
+//     "speed": 146,
+//     "mechanical_power": 2.21,
+//     "efficiency": 45
+//   },
+//   "p7v": {
+//     "speed": 100,
+//     "mechanical_power": 1.51,
+//     "efficiency": 40
+//   },
+//   "dimensions": "5x5x6",
+//   "volume": 150,
+//   "weight": 69,
+//   "noise_level": 12,
+//   "noload_current": 80,
+//   "stalled_current": 1800,
+//   "input": "permanently attached wire with Mindstorms plug",
+//   "output": "1-stud-deep axle hole",
+//   "start": 2007,
+//   "end": 2017,
+//   "sets": 7,
+//   "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+//   "speeds": {
+//     "No load": [100, 115, 120, 155, 122, 134],
+//     "50g load": [90, 100, 105, 130, 111, 117],
+//     "100g load": [80, 90, 96, 112, 107, 110],
+//     "250g load": [100, 115, 120, 155, 122, 134],
+//     "500g load": [100, 115, 120, 155, 122, 134],
+//     "1000g load": [100, 115, 120, 155, 122, 134]
+//   }
+// },
+
+let motorTorques = [];
+let motorSpeeds = [];
+
+motors.forEach((motor, i) => {
+  if (motor.torque != "?") {
+    motorTorques[motor.name] = motor.torque;
+  }
+
+  if (motor.p9v.speed != "?") {
+    motorSpeeds[motor.name] = motor.p9v.speed;
+  }
+});
+
+console.log(motorTorques);
+
+let randomColors = [];
+for (let i = 0; i < Object.values(motorTorques).length; i++) {
+  randomColors.push('#' + Math.floor(Math.random()*16777215).toString(16))
+}
+
+let datasets = [{
+    data: Object.values(motorTorques),
+    label: "Torque",
+    borderColor: randomColors,
+    backgroundColor: randomColors,
+    borderWidth: 1,
+  }];
+
+drawBarChart($('#totalTorque'), 'Motors by torque', 'Torque', 'N.cm', Object.keys(motorTorques), datasets);
 
 
 });
