@@ -129,10 +129,10 @@ $(document).ready(function() {
       "dimensions": "5x5x6",
       "volume": 150,
       "weight": 69,
-      "noise_level": 12,
+      "noise_level": 7,
       "noload_current": 80,
       "stalled_current": 1800,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 20 cm long wire with Power Functions plug",
       "output": "1-stud-deep axle hole",
       "start": 2007,
       "end": 2017,
@@ -248,6 +248,7 @@ $(document).ready(function() {
       "start": 2020,
       "end": 2023,
       "sets": 4,
+      "note": "virtually identical to the Spike L motor except for the color",
       "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
@@ -285,6 +286,7 @@ $(document).ready(function() {
       "start": 2020,
       "end": 2021,
       "sets": 4,
+      "note": "virtually identical to the Powered Up XXL motor except for the color",
       "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
@@ -354,7 +356,7 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 120,
       "stalled_current": 1300,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 20 cm long wire with Power Functions plug",
       "output": "1-stud-deep axle hole",
       "start": 2012,
       "end": 2019,
@@ -371,7 +373,7 @@ $(document).ready(function() {
     },
     {
       "name": "RC Buggy (outer input)",
-      "image": "mrc",
+      "image": "mrc-o",
       "bl_id": "5292c01",
       "type": "9V",
       "torque": 5.7,
@@ -388,7 +390,7 @@ $(document).ready(function() {
       "dimensions": "5x5.5x11",
       "volume": 302.5,
       "weight": 55,
-      "noise_level": 16,
+      "noise_level": 68,
       "noload_current": 160,
       "stalled_current": 3200,
       "input": "permanently attached wire with Mindstorms plug",
@@ -396,6 +398,45 @@ $(document).ready(function() {
       "start": 2002,
       "end": 2006,
       "sets": 5,
+      "note": "this motor has two outputs, spinning in opposite directions and geared internally 17(inner):23(outer), meaning that the outer output is roughly 1.35x slower and stronger",
+      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds": {
+        "No load": [100, 115, 120, 155, 122, 134],
+        "50g load": [100, 115, 120, 155, 122, 134],
+        "100g load": [100, 115, 120, 155, 122, 134],
+        "250g load": [100, 115, 120, 155, 122, 134],
+        "500g load": [100, 115, 120, 155, 122, 134],
+        "1000g load": [100, 115, 120, 155, 122, 134]
+      }
+    },
+    {
+      "name": "RC Buggy (inner input)",
+      "image": "mrc-i",
+      "bl_id": "5292c01",
+      "type": "9V",
+      "torque": 4.2,
+      "p9v": {
+        "speed": 1055,
+        "mechanical_power": 4.61,
+        "efficiency": 37
+      },
+      "p7v": {
+        "speed": 780,
+        "mechanical_power": 3.45,
+        "efficiency": 34
+      },
+      "dimensions": "5x5.5x11",
+      "volume": 302.5,
+      "weight": 55,
+      "noise_level": 68,
+      "noload_current": 160,
+      "stalled_current": 3200,
+      "input": "permanently attached wire with Mindstorms plug",
+      "output": "two open axle holes, 2-studs thick each",
+      "start": 2002,
+      "end": 2006,
+      "sets": 5,
+      "note": "this motor has two outputs, spinning in opposite directions and geared internally 17(inner):23(outer), meaning that the outer output is roughly 1.35x slower and stronger",
       "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
@@ -536,10 +577,10 @@ $(document).ready(function() {
       "dimensions": "3x3x6",
       "volume": 54,
       "weight": 31,
-      "noise_level": 11,
+      "noise_level": 13,
       "noload_current": 65,
       "stalled_current": 850,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 20 cm long wire with Power Functions plug",
       "output": "1-stud-deep axle hole",
       "start": 2007,
       "end": 2018,
@@ -610,7 +651,7 @@ $(document).ready(function() {
       "dimensions": "4x4x4",
       "volume": 64,
       "weight": 40,
-      "noise_level": 30,
+      "noise_level": 50,
       "noload_current": 31,
       "stalled_current": 580,
       "input": "permanently attached wire with Mindstorms plug",
@@ -647,7 +688,7 @@ $(document).ready(function() {
       "dimensions": "4x4x4",
       "volume": 64,
       "weight": 42,
-      "noise_level": 30,
+      "noise_level": 37,
       "noload_current": 3.5,
       "stalled_current": 360,
       "input": "permanently attached wire with Mindstorms plug",
@@ -687,11 +728,12 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 17.5,
       "stalled_current": 410,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 20 cm long wire with Power Functions plug",
       "output": "1-stud-deep axle hole",
       "start": 2010,
       "end": 2014,
       "sets": 2,
+      "note": "a motor designed to act as a power generator in a LEGO Education set, poor performance when used to drive anything",
       "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
@@ -724,11 +766,12 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 6,
       "stalled_current": 80,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 contact area on the back (the wall opposing the output)",
       "output": "special connector with a 1-stud-deep axle hole and a pulley on it",
       "start": 1993,
       "end": 2001,
       "sets": 10,
+      "note": "easily damaged from stalling if used without the pulley which acts as a safety clutch",
       "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
@@ -906,7 +949,7 @@ $(document).ready(function() {
       "dimensions": "3x4x5",
       "volume": 60,
       "weight": 48,
-      "noise_level": 30,
+      "noise_level": 10,
       "noload_current": 35,
       "stalled_current": 700,
       "input": "permanently attached wire with Mindstorms plug",
@@ -946,11 +989,12 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": "?",
       "stalled_current": "?",
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 20 cm long wire with Power Functions plug",
       "output": "two 1-stud-deep axle holes; one in the front, one in the back, turning in the same direction, one stud apart internally",
       "start": 2012,
       "end": 2014,
       "sets": 4,
+      "note": "mechanically limited to only rotate 90&deg; left or right from the central position, depending on the voltage provided; no continuous 360&deg; rotation",
       "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
@@ -1025,6 +1069,7 @@ $(document).ready(function() {
       "start": 2024,
       "end": 2024,
       "sets": 1,
+      "note": "a self-contained hub with three internal motors, one with a single output in the front and two with double outputs (set at right angles to each other) at the back. Also includes 6 LEDs that connect to LEGO fiber optics cables.",
       "speeds_labels": ["Rechargeable Powered Up battery"],
       "speeds": {
         "No load": [100],
@@ -1215,6 +1260,8 @@ $(document).ready(function() {
       Math.round(motor.noise_level / maxes.noise_level * 100) +
       ']';
 
+    let note = (motor.note == null) ? `` : `<span class="text-muted"><i class="material-icons mr-2">info</i>Note:</span> ` + motor.note + `<br>`;
+
     let tr = `<tr>
                                         <td><img src="img/` + motor.image + `.png" width="80" height="80"></td>
                                         <td class="align-middle font-weight-bold">` + motor.name + `</td>
@@ -1238,7 +1285,8 @@ $(document).ready(function() {
                                               <span class="text-muted"><i class="material-icons mr-2">electric_bolt</i>No-load current:</span> ` + motor.noload_current + ` mA<br>
                                               <span class="text-muted"><i class="material-icons mr-2">electric_bolt</i>Stalled current:</span> ` + motor.stalled_current + ` mA<br>
                                               <span class="text-muted"><i class="material-icons mr-2">input</i>Input:</span> ` + motor.input + `<br>
-                                              <span class="text-muted"><i class="material-icons mr-2">output</i>Output:</span> ` + motor.output + `<br><br>
+                                              <span class="text-muted"><i class="material-icons mr-2">output</i>Output:</span> ` + motor.output + `<br>
+                                              ` + note + `<br>
 
                                               <a href="https://www.bricklink.com/v2/catalog/catalogitem.page?P=` + motor.bl_id + `" class="btn btn-info mr-2">SEE ON BRICKLINK</a>
                                               <a href="https://rebrickable.com/parts/` + motor.bl_id + `" class="btn btn-info">SEE ON REBRICKABLE</a>
@@ -1246,14 +1294,14 @@ $(document).ready(function() {
                                             <div class="col-2">
                                               9V performance:<br><br><span class="text-muted">
                                               Speed: ` + motor.p9v.speed + ` RPM<br>
-                                              Mechanical power: ` + motor.p9v.mechanical_power + ` N.cm<br>
+                                              Mechanical power: ` + motor.p9v.mechanical_power + ` W<br>
                                               Efficiency: ` + motor.p9v.efficiency + ` %
                                               </span>
                                             </div>
                                             <div class="col-2">
                                               7V performance:<br><br><span class="text-muted">
                                               Speed: ` + motor.p7v.speed + ` RPM<br>
-                                              Mechanical power: ` + motor.p7v.mechanical_power + ` N.cm<br>
+                                              Mechanical power: ` + motor.p7v.mechanical_power + ` W<br>
                                               Efficiency: ` + motor.p7v.efficiency + ` %
                                               </span>
                                             </div>
