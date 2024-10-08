@@ -29,7 +29,7 @@ $(document).ready(function() {
     "torque": 17.3,
     "speed": 2000,
     "mechanical_power": 4.61,
-    "size": 590,
+    "size": 672,
     "weight": 269,
     "efficiency": 56,
     "noise_level": 80,
@@ -66,11 +66,11 @@ $(document).ready(function() {
       "speeds_labels": ["Eneloop batteries", "Ni-Zn batteries", "Mindstorms rechargeable battery"],
       "speeds": {
         "No load": [78, 105, 153],
+        "10g load": [11, 12, 13],
         "50g load": [11, 12, 13],
         "100g load": [21, 22, 23],
         "250g load": [31, 32, 33],
-        "500g load": [41, 42, 43],
-        "1000g load": [51, 52, 53]
+        "500g load": [41, 42, 43]
       }
     },
     {
@@ -95,19 +95,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 60,
       "stalled_current": 2000,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "Mindstorms-type socket",
       "output": "two-sided 3x3 round brick with 3-studs-deep axle hole going through it and 4 pin holes around it on either side",
       "start": 2006,
       "end": 2014,
       "sets": 4,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["Eneloop batteries", "Ni-Zn batteries", "Mindstorms rechargeable battery"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [50, 115, 120, 155, 122, 134],
         "50g load": [50, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -137,14 +137,14 @@ $(document).ready(function() {
       "start": 2007,
       "end": 2017,
       "sets": 7,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
-        "No load": [100, 115, 120, 155, 122, 134],
-        "50g load": [90, 100, 105, 130, 111, 117],
-        "100g load": [80, 90, 96, 112, 107, 110],
-        "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "No load": [164, 256, 210, 258, 161, 191],
+        "10g load": [161, 205, 175, 224, 157, 178],
+        "50g load": [142, 201, 172, 215, 141, 163],
+        "100g load": [139, 189, 160, 184, 104, 157],
+        "250g load": [46, 52, 103, 144, 70, 90],
+        "500g load": [0, 0, 15, 65, 0, 0]
       }
     },
     {
@@ -169,19 +169,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 120,
       "stalled_current": 1400,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "1-stud-deep axle hole",
       "start": 2019,
       "end": 2023,
       "sets": 11,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [40, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -206,19 +206,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 60,
       "stalled_current": 1100,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "1-stud-deep axle hole",
       "start": 2019,
       "end": 2020,
       "sets": 5,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -243,20 +243,20 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 110,
       "stalled_current": 1800,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2020,
       "end": 2023,
       "sets": 4,
       "note": "virtually identical to the Spike L motor except for the color",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -281,20 +281,20 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 110,
       "stalled_current": 1800,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2020,
       "end": 2021,
       "sets": 4,
       "note": "virtually identical to the Powered Up XXL motor except for the color",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -319,19 +319,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 80,
       "stalled_current": 780,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "EV3 Mindstorms-type socket",
       "output": "1-stud-deep axle hole",
       "start": 2013,
       "end": 2016,
       "sets": 3,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -361,19 +361,19 @@ $(document).ready(function() {
       "start": 2012,
       "end": 2019,
       "sets": 10,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
-      "name": "RC Buggy (outer input)",
-      "image": "mrc-o",
+      "name": "RC Buggy",
+      "image": "mrc",
       "bl_id": "5292c01",
       "type": "9V",
       "torque": 5.7,
@@ -393,58 +393,20 @@ $(document).ready(function() {
       "noise_level": 68,
       "noload_current": 160,
       "stalled_current": 3200,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 studs contact area on top of the motor",
       "output": "two open axle holes, 2-studs thick each",
       "start": 2002,
       "end": 2006,
       "sets": 5,
-      "note": "this motor has two outputs, spinning in opposite directions and geared internally 17(inner):23(outer), meaning that the outer output is roughly 1.35x slower and stronger",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "note": "this motor has two outputs, spinning in opposite directions and geared internally 17(inner):23(outer), meaning that the inner output is roughly 26% faster and weaker than the outer one. All performance here is measured for the outer output.",
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
-      }
-    },
-    {
-      "name": "RC Buggy (inner input)",
-      "image": "mrc-i",
-      "bl_id": "5292c01",
-      "type": "9V",
-      "torque": 4.2,
-      "p9v": {
-        "speed": 1055,
-        "mechanical_power": 4.61,
-        "efficiency": 37
-      },
-      "p7v": {
-        "speed": 780,
-        "mechanical_power": 3.45,
-        "efficiency": 34
-      },
-      "dimensions": "5x5.5x11",
-      "volume": 302.5,
-      "weight": 55,
-      "noise_level": 68,
-      "noload_current": 160,
-      "stalled_current": 3200,
-      "input": "permanently attached wire with Mindstorms plug",
-      "output": "two open axle holes, 2-studs thick each",
-      "start": 2002,
-      "end": 2006,
-      "sets": 5,
-      "note": "this motor has two outputs, spinning in opposite directions and geared internally 17(inner):23(outer), meaning that the outer output is roughly 1.35x slower and stronger",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
-      "speeds": {
-        "No load": [100, 115, 120, 155, 122, 134],
-        "50g load": [100, 115, 120, 155, 122, 134],
-        "100g load": [100, 115, 120, 155, 122, 134],
-        "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -469,19 +431,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 100,
       "stalled_current": 850,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2020,
       "end": 2021,
       "sets": 4,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -506,19 +468,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 41,
       "stalled_current": 450,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "1-stud-deep axle hole",
       "start": 2017,
       "end": 2019,
       "sets": 3,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -543,19 +505,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 60,
       "stalled_current": 800,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "1-stud-deep axle hole",
       "start": 2016,
       "end": 2022,
       "sets": 6,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -585,14 +547,14 @@ $(document).ready(function() {
       "start": 2007,
       "end": 2018,
       "sets": 29,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
-        "No load": [100, 115, 120, 155, 122, 134],
-        "50g load": [100, 115, 120, 155, 122, 134],
-        "100g load": [100, 115, 120, 155, 122, 134],
-        "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "No load": [256, 414, 358, 463, 355, 344],
+        "10g load": [219, 251, 228, 253, 178, 157],
+        "50g load": [166, 339, 250, 413, 76, 49],
+        "100g load": [0, 0, 0, 0, 0, 0],
+        "250g load": [0, 0, 0, 0, 0, 0],
+        "500g load": [0, 0, 0, 0, 0, 0]
       }
     },
     {
@@ -617,19 +579,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 9,
       "stalled_current": 340,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 studs contact area on top of the motor",
       "output": "1L axle",
       "start": 1993,
       "end": 2004,
       "sets": 14,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -654,19 +616,19 @@ $(document).ready(function() {
       "noise_level": 50,
       "noload_current": 31,
       "stalled_current": 580,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 studs contact area on top of the motor",
       "output": "1-stud-deep axle hole",
       "start": 2003,
       "end": 2006,
       "sets": 2,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -691,19 +653,19 @@ $(document).ready(function() {
       "noise_level": 37,
       "noload_current": 3.5,
       "stalled_current": 360,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 studs contact area on top of the motor",
       "output": "1L axle",
       "start": 1997,
       "end": 2004,
       "sets": 27,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -711,6 +673,7 @@ $(document).ready(function() {
       "image": "mpfe",
       "bl_id": "87577c01",
       "type": "Power Functions",
+      "hide_charts": true,
       "torque": 1.32,
       "p9v": {
         "speed": 420,
@@ -734,14 +697,14 @@ $(document).ready(function() {
       "end": 2014,
       "sets": 2,
       "note": "a motor designed to act as a power generator in a LEGO Education set, poor performance when used to drive anything",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -772,14 +735,14 @@ $(document).ready(function() {
       "end": 2001,
       "sets": 10,
       "note": "easily damaged from stalling if used without the pulley which acts as a safety clutch",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -787,6 +750,7 @@ $(document).ready(function() {
       "image": "m9vtrain",
       "bl_id": "590",
       "type": "Trains",
+      "hide_charts": true,
       "torque": 0.9,
       "p9v": {
         "speed": 1250,
@@ -804,19 +768,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 90,
       "stalled_current": 950,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 studs contact area on top of front of the bogie",
       "output": "two open axle holes, 4 studs thick each",
       "start": 1991,
       "end": 2007,
       "sets": 18,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -824,6 +788,7 @@ $(document).ready(function() {
       "image": "mpftrain",
       "bl_id": "bb0896c01",
       "type": "Trains",
+      "hide_charts": true,
       "torque": 0.9,
       "p9v": {
         "speed": 1242,
@@ -841,19 +806,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 100,
       "stalled_current": 1100,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "two open axle holes, 4 studs thick each",
       "start": 2018,
       "end": 2022,
       "sets": 6,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -861,6 +826,7 @@ $(document).ready(function() {
       "image": "mpftrain",
       "bl_id": "87574c01",
       "type": "Trains",
+      "hide_charts": true,
       "torque": 0.85,
       "p9v": {
         "speed": 1458,
@@ -878,19 +844,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 90,
       "stalled_current": 1300,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 20 cm long wire with Power Functions plug",
       "output": "two open axle holes, 4 studs thick each",
       "start": 2010,
       "end": 2015,
       "sets": 7,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -898,6 +864,7 @@ $(document).ready(function() {
       "image": "m9vtrain",
       "bl_id": "x1688",
       "type": "Trains",
+      "hide_charts": true,
       "torque": 0.85,
       "p9v": {
         "speed": 990,
@@ -915,19 +882,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": 90,
       "stalled_current": 750,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x2 studs contact area on top of front of the bogie",
       "output": "two open axle holes, 4 studs thick each",
       "start": 2006,
       "end": 2009,
       "sets": 3,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -952,19 +919,19 @@ $(document).ready(function() {
       "noise_level": 10,
       "noload_current": 35,
       "stalled_current": 700,
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "2x5 studs contact area on the bottom of the motor",
       "output": "1L axle",
       "start": 1990,
       "end": 2002,
       "sets": 17,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -972,6 +939,7 @@ $(document).ready(function() {
       "image": "mpfservo",
       "bl_id": "99498c01",
       "type": "Power Functions",
+      "hide_charts": true,
       "torque": "?",
       "p9v": {
         "speed": "?",
@@ -995,14 +963,14 @@ $(document).ready(function() {
       "end": 2014,
       "sets": 4,
       "note": "mechanically limited to only rotate 90&deg; left or right from the central position, depending on the voltage provided; no continuous 360&deg; rotation",
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -1027,19 +995,19 @@ $(document).ready(function() {
       "noise_level": 30,
       "noload_current": "?",
       "stalled_current": "?",
-      "input": "permanently attached wire with Mindstorms plug",
+      "input": "permanently attached 25 cm long wire with Powered Up plug",
       "output": "one-sided 3x3 round brick with 1-stud-deep axle hole and 4 pin holes around it",
       "start": 2021,
       "end": 2021,
       "sets": 2,
-      "speeds_labels": ["7.4V", "9V", "Ni-Zn AA", "CaDa brick", "Mould King brick", "BuWizz"],
+      "speeds_labels": ["7.4V", "9V", "Eneloop", "Ni-Zn AA", "CaDa brick", "Mould King brick"],
       "speeds": {
         "No load": [100, 115, 120, 155, 122, 134],
+        "10g load": [100, 115, 120, 155, 122, 134],
         "50g load": [100, 115, 120, 155, 122, 134],
         "100g load": [100, 115, 120, 155, 122, 134],
         "250g load": [100, 115, 120, 155, 122, 134],
-        "500g load": [100, 115, 120, 155, 122, 134],
-        "1000g load": [100, 115, 120, 155, 122, 134]
+        "500g load": [100, 115, 120, 155, 122, 134]
       }
     },
     {
@@ -1058,10 +1026,10 @@ $(document).ready(function() {
         "mechanical_power": "?",
         "efficiency": "?"
       },
-      "dimensions": "16x7x5",
-      "volume": 560,
+      "dimensions": "16x7x6",
+      "volume": 672,
       "weight": 269,
-      "noise_level": 30,
+      "noise_level": 16,
       "noload_current": "?",
       "stalled_current": "?",
       "input": "proprietary connector for rechargeable Powered Up battery #109481c01",
@@ -1072,12 +1040,12 @@ $(document).ready(function() {
       "note": "a self-contained hub with three internal motors, one with a single output in the front and two with double outputs (set at right angles to each other) at the back. Also includes 6 LEDs that connect to LEGO fiber optics cables.",
       "speeds_labels": ["Rechargeable Powered Up battery"],
       "speeds": {
-        "No load": [100],
-        "50g load": [100],
-        "100g load": [100],
-        "250g load": [100],
-        "500g load": [100],
-        "1000g load": [100]
+        "No load": [476],
+        "10g load": [443],
+        "50g load": [384],
+        "100g load": [374],
+        "250g load": [0],
+        "500g load": [0]
       }
     },
   ];
@@ -1373,10 +1341,12 @@ $(document).ready(function() {
 
     $("tbody").append(tr);
 
-    drawChart($('#speeds-1-' + motor.bl_id), Object.keys(motor.speeds), createDatasets(motor.speeds_labels, motor.speeds));
+    if (!motor.hide_charts) {
+      drawChart($('#speeds-1-' + motor.bl_id), Object.keys(motor.speeds), createDatasets(motor.speeds_labels, motor.speeds));
 
-    let lineLabels = ['None', '50g', '100g', '250g', '500g', '1000g'];
-    drawLineChart($('#line-' + motor.bl_id), 'Motor speed curves', 'Load', lineLabels, createDatasetsForLineCharts(motor.speeds_labels,  motor.speeds));
+      let lineLabels = ['None', '50g', '100g', '250g', '500g', '1000g'];
+      drawLineChart($('#line-' + motor.bl_id), 'Motor speed curves', 'Load', lineLabels, createDatasetsForLineCharts(motor.speeds_labels,  motor.speeds));
+    }
   }
 
   function createDatasets(labels, values) {
