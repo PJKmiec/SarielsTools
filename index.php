@@ -35,7 +35,22 @@
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://gears.sariel.pl"><span class="material-icons align-middle mr-2">settings</span> Gear Ratio Calculator</a>
+                            <a href="https://motors.sariel.pl"><span class="material-icons align-middle mr-2">speed</span> Motors Stats</a>
+                          </td>
+                          <td class="text-left align-middle">
+                            Detailed statistics of LEGO motors in a sortable, filterable list + motors toplists in several categories.
+                          </td>
+                          <td class="align-middle">
+                            N/A
+                          </td>
+                          <td class="align-middle">
+                            <a href="https://motors.sariel.pl">motors.sariel.pl</a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="text-left align-middle">
+                            <a href="https://gears.sariel.pl"><span class="material-icons align-middle mr-2">settings</span> Gear Ratio Calculator</a>
                           </td>
                           <td class="text-left align-middle">
                             Calculates final ratio of multiple pairs of gears, shows theoretical output for selected motor
@@ -45,13 +60,13 @@
                             <a target="_blank" href='https://play.google.com/store/apps/details?id=pl.sariel.brickgearratiocalculator'><img alt='Get it on Google Play' src='https://lh3.googleusercontent.com/cjsqrWQKJQp9RFO7-hJ9AfpKzbUb_Y84vXfjlP0iRHBvladwAfXih984olktDhPnFqyZ0nu9A5jvFwOEQPXzv7hr3ce3QVsLN8kQ2Ao=s0'/></a>
                           </td>
                           <td class="align-middle">
-                            <a href="http://gears.sariel.pl">gears.sariel.pl</a>
+                            <a href="https://gears.sariel.pl">gears.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://pulleys.sariel.pl"><span class="material-icons align-middle mr-2">hdr_weak</span> Pulley Ratio Calculator</a>
+                            <a href="https://pulleys.sariel.pl"><span class="material-icons align-middle mr-2">hdr_weak</span> Pulley Ratio Calculator</a>
                           </td>
                           <td class="text-left align-middle">
                             Calculates final ratio of multiple pairs of pulleys.
@@ -60,13 +75,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://pulleys.sariel.pl">pulleys.sariel.pl</a>
+                            <a href="https://pulleys.sariel.pl">pulleys.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://scaler.sariel.pl"><span class="material-icons align-middle mr-2">aspect_ratio</span> Model Scaler</a>
+                            <a href="https://scaler.sariel.pl"><span class="material-icons align-middle mr-2">aspect_ratio</span> Model Scaler</a>
                           </td>
                           <td class="text-left align-middle">
                             Allows to calculate dimensions of your model from a blueprint of the original object.
@@ -75,13 +90,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://scaler.sariel.pl">scaler.sariel.pl</a>
+                            <a href="https://scaler.sariel.pl">scaler.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://mocs.sariel.pl"><span class="material-icons align-middle mr-2">list_alt</span> MOC Manager</a>
+                            <a href="https://mocs.sariel.pl"><span class="material-icons align-middle mr-2">list_alt</span> MOC Manager</a>
                           </td>
                           <td class="text-left align-middle">
                             Allows creating and sorting a detailed list of your projects.
@@ -90,13 +105,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://mocs.sariel.pl">mocs.sariel.pl</a>
+                            <a href="https://mocs.sariel.pl">mocs.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://studs.sariel.pl"><span class="material-icons align-middle mr-2">flip</span> Unit Converter</a>
+                            <a href="https://studs.sariel.pl"><span class="material-icons align-middle mr-2">flip</span> Unit Converter</a>
                           </td>
                           <td class="text-left align-middle">
                             Converts between multiple units, including studs, milimeters, inches, bricks, stacked plates and track links.
@@ -105,13 +120,13 @@
                             <a target="_blank" href='https://play.google.com/store/apps/details?id=pl.sariel.legounitconverter'><img alt='Get it on Google Play' src='https://lh3.googleusercontent.com/cjsqrWQKJQp9RFO7-hJ9AfpKzbUb_Y84vXfjlP0iRHBvladwAfXih984olktDhPnFqyZ0nu9A5jvFwOEQPXzv7hr3ce3QVsLN8kQ2Ao=s0'/></a>
                           </td>
                           <td class="align-middle">
-                            <a href="http://studs.sariel.pl">studs.sariel.pl</a>
+                            <a href="https://studs.sariel.pl">studs.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://colors.sariel.pl"><span class="material-icons align-middle mr-2">invert_colors</span> Colors Checker</a>
+                            <a href="https://colors.sariel.pl"><span class="material-icons align-middle mr-2">invert_colors</span> Colors Checker</a>
                           </td>
                           <td class="text-left align-middle">
                             Check for shared common colors between up to 6 various LEGO pieces.
@@ -119,13 +134,13 @@
                           <td class="align-middle">
                             N/A                          </td>
                           <td class="align-middle">
-                            <a href="http://colors.sariel.pl">colors.sariel.pl</a>
+                            <a href="https://colors.sariel.pl">colors.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://angles.sariel.pl"><span class="material-icons align-middle mr-2">signal_cellular_null</span> Angles Chart</a>
+                            <a href="https://angles.sariel.pl"><span class="material-icons align-middle mr-2">signal_cellular_null</span> Angles Chart</a>
                           </td>
                           <td class="text-left align-middle">
                             Lists angles that can be achieved using single LEGO pieces, includes Bricklink links for the pieces.
@@ -134,13 +149,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://angles.sariel.pl">angles.sariel.pl</a>
+                            <a href="https://angles.sariel.pl">angles.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://wheels.sariel.pl"><span class="material-icons align-middle mr-2">album</span> Wheels Chart</a>
+                            <a href="https://wheels.sariel.pl"><span class="material-icons align-middle mr-2">album</span> Wheels Chart</a>
                           </td>
                           <td class="text-left align-middle">
                             Lists LEGO wheels with their dimensions, weights, subparts, available rim/tire combinations and Bricklink links.
@@ -149,13 +164,13 @@
                             <a target="_blank" href='https://play.google.com/store/apps/details?id=pl.sariel.legowheelstable'><img alt='Get it on Google Play' src='https://lh3.googleusercontent.com/cjsqrWQKJQp9RFO7-hJ9AfpKzbUb_Y84vXfjlP0iRHBvladwAfXih984olktDhPnFqyZ0nu9A5jvFwOEQPXzv7hr3ce3QVsLN8kQ2Ao=s0'/></a>
                           </td>
                           <td class="align-middle">
-                            <a href="http://wheels.sariel.pl">wheels.sariel.pl</a>
+                            <a href="https://wheels.sariel.pl">wheels.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://monorail.sariel.pl"><span class="material-icons align-middle mr-2">directions_transit</span> Monorail Network Planner</a>
+                            <a href="https://monorail.sariel.pl"><span class="material-icons align-middle mr-2">directions_transit</span> Monorail Network Planner</a>
                           </td>
                           <td class="text-left align-middle">
                             Drag & drop tool for designing Monorail track layouts.
@@ -164,13 +179,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://monorail.sariel.pl">monorail.sariel.pl</a>
+                            <a href="https://monorail.sariel.pl">monorail.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://town.sariel.pl"><span class="material-icons align-middle mr-2">view_quilt</span> Town Parcel Planner</a>
+                            <a href="https://town.sariel.pl"><span class="material-icons align-middle mr-2">view_quilt</span> Town Parcel Planner</a>
                           </td>
                           <td class="text-left align-middle">
                             Drag & drop tool for designing town parcels layouts.
@@ -179,13 +194,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://town.sariel.pl">town.sariel.pl</a>
+                            <a href="https://town.sariel.pl">town.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://bs.sariel.pl"><span class="material-icons align-middle mr-2">crop_original</span> Bricksafe Thumbnail Helper</a>
+                            <a href="https://bs.sariel.pl"><span class="material-icons align-middle mr-2">crop_original</span> Bricksafe Thumbnail Helper</a>
                           </td>
                           <td class="text-left align-middle">
                             Generates easy-to-use BBCode to include in your post to create a thumbnail gallery from a selected Bricksafe page. You can choose from several thumbnail and image sizes.
@@ -194,13 +209,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://bs.sariel.pl">bs.sariel.pl</a>
+                            <a href="https://bs.sariel.pl">bs.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://thumbs.sariel.pl"><span class="material-icons align-middle mr-2">crop_original</span> Brickshelf Thumbnail Helper</a>
+                            <a href="https://thumbs.sariel.pl"><span class="material-icons align-middle mr-2">crop_original</span> Brickshelf Thumbnail Helper</a>
                           </td>
                           <td class="text-left align-middle">
                             Generates easy-to-use BBCode to include in your post to create a thumbnail gallery from a selected Brickshelf page.
@@ -209,13 +224,13 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://thumbs.sariel.pl">thumbs.sariel.pl</a>
+                            <a href="https://thumbs.sariel.pl">thumbs.sariel.pl</a>
                           </td>
                         </tr>
 
                         <tr>
                           <td class="text-left align-middle">
-                            <a href="http://stats.sariel.pl"><span class="material-icons align-middle mr-2">trending_up</span> Brickshelf Stats</a>
+                            <a href="https://stats.sariel.pl"><span class="material-icons align-middle mr-2">trending_up</span> Brickshelf Stats</a>
                           </td>
                           <td class="text-left align-middle">
                             A statistics tool for your Brickshelf gallery.
@@ -224,7 +239,7 @@
                             N/A
                           </td>
                           <td class="align-middle">
-                            <a href="http://stats.sariel.pl">stats.sariel.pl</a>
+                            <a href="https://stats.sariel.pl">stats.sariel.pl</a>
                           </td>
                         </tr>
 
@@ -243,7 +258,7 @@
           <!-- Copyright -->
           <div class="text-center p-2">
             <span class="material-icons align-middle mr-2" style="font-size: 1.4rem">pets</span>
-            Powered by hamsters | Developed by <a href="http://sariel.pl">Sariel</a> |
+            Powered by hamsters | Developed by <a href="https://sariel.pl">Sariel</a> |
             Uses <a href="https://designrevision.com/downloads/shards/">Bootstrap Shards</a>
           </div>
           <!-- Copyright -->
