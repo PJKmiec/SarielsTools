@@ -1,0 +1,18 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template/modern-business)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+body {
+  background: #ededed;
+}
+
+h1 {color: white;}
+.text-shadow {text-shadow: 2px 2px 3px #000000;}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+.card-img-top {opacity: 0.8; transition: opacity 0.5s}
+
+.card-img-top:hover {opacity: 1;}
