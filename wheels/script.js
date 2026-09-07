@@ -72,6 +72,6 @@ $(document).ready(function() {
 
   // show number of items and update date
   var rowCount = $("table tr").length;
-  $(".card-header").prepend('Total items: ' + (rowCount - 1) + '. Last updated: March 8th 2022.');
+  $(".card-header").prepend('Total items: ' + (rowCount - 1) + '. Last updated: September 6th 2026.');
 
 });

@@ -65,6 +65,91 @@
                         <?php
 
                         $wheels = array(
+                          '84772pb01c01' => array(
+                            'type' => 'road',
+                            'id' => '84772pb01c01',
+                            'img' => 'w84772pb01c01',
+                            'rim' => '84772pb01',
+                            'rim_alternatives' => array('4456'),
+                            'tire' => '80542',
+                            'tire_alternatives' => array('84772'),
+                            'diameter' => 75.1,
+                            'tire_width' => 20.3,
+                            'rim_diameter' => 62.3,
+                            'rim_width' => 20.3,
+                            'weight' => 35,
+                            'rarity' => 'rare'
+                          ),
+                          '71720c01' => array(
+                            'type' => 'road',
+                            'id' => '71720c01',
+                            'img' => 'w71720c01',
+                            'rim' => '71720',
+                            'rim_alternatives' => array('71722'),
+                            'tire' => '71721',
+                            'diameter' => 132.6,
+                            'tire_width' => 27,
+                            'rim_diameter' => 107.1,
+                            'rim_width' => 24,
+                            'weight' => 109.3,
+                            'rarity' => 'rare'
+                          ),
+                          '71720c02' => array(
+                            'type' => 'road',
+                            'id' => '71720c02',
+                            'img' => 'w71720c02',
+                            'rim' => '71720',
+                            'rim_alternatives' => array('71721'),
+                            'tire' => '71722',
+                            'diameter' => 139,
+                            'tire_width' => 37,
+                            'rim_diameter' => 107.1,
+                            'rim_width' => 24,
+                            'weight' => 109.3,
+                            'rarity' => 'rare'
+                          ),
+                          '80280c01' => array(
+                            'type' => 'road',
+                            'id' => '80280c01',
+                            'img' => 'w80280c01',
+                            'rim' => '80280',
+                            'tire' => '80279',
+                            'diameter' => 87.9,
+                            'tire_width' => 44,
+                            'rim_diameter' => 75,
+                            'rim_width' => 41,
+                            'weight' => 49,
+                            'rarity' => 'rare'
+                          ),
+                          '15038c06' => array(
+                            'type' => 'road',
+                            'id' => '15038c06',
+                            'img' => 'w15038c06',
+                            'rim' => '15038',
+                            'rim_alternatives' => array('23798', '44771', '2997', '92912', '54120'),
+                            'tire' => '4410',
+                            'tire_alternatives' => array('44772', '15038', '49294', '2998'),
+                            'diameter' => 81.6,
+                            'tire_width' => 44,
+                            'rim_diameter' => 56,
+                            'rim_width' => 34,
+                            'weight' => 50,
+                            'rarity' => 'rare'
+                          ),
+                          '7877c01' => array(
+                            'type' => 'road',
+                            'id' => '7877c01',
+                            'img' => 'w7877c01',
+                            'rim' => '7877',
+                            'tire' => '7860',
+                            'diameter' => 75,
+                            'tire_width' => 13,
+                            'rim_diameter' => 56,
+                            'rim_width' => 13,
+                            'weight' => 18,
+                            'rarity' => 'rare'
+                          ),
+
                           '42610c02' => array(
                             'type' => 'road',
                             'id' => '42610c02',
@@ -1107,7 +1192,7 @@ require_once('../common/php/footerScripts.php');
 ?>
 
   <script src="stupidtable.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=1"></script>
 
 </body>
 </html>
