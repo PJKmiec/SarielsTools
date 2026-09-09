@@ -42,6 +42,9 @@
                   <li class="nav-item <?php isActive('scaler') ;?>">
                     <a class="nav-link <?php isBold('scaler') ;?>" href="https://scaler.sariel.pl">Model Scaler</a>
                   </li>
+                    <li class="nav-item <?php isActive('mocboard') ;?>">
+                        <a class="nav-link <?php isBold('mocboard') ;?>" href="https://mb.sariel.pl">MOCBoard</a>
+                    </li>
                   <li class="nav-item <?php isActive('mocmanager') ;?>">
                     <a class="nav-link <?php isBold('mocmanager') ;?>" href="https://mocs.sariel.pl">MOC Manager</a>
                   </li>
@@ -57,22 +60,31 @@
                   <li class="nav-item <?php isActive('wheels') ;?>">
                     <a class="nav-link <?php isBold('wheels') ;?>" href="https://wheels.sariel.pl">Wheels Chart</a>
                   </li>
-                  <li class="nav-item <?php isActive('bs') ;?>">
-                    <a class="nav-link <?php isBold('bs') ;?>" href="https://bs.sariel.pl">Bricksafe Thumbnail Helper</a>
-                  </li>
-                  <li class="nav-item <?php isActive('thumbs') ;?>">
-                    <a class="nav-link <?php isBold('thumbs') ;?>" href="https://thumbs.sariel.pl">Brickshelf Thumbnail Helper</a>
-                  </li>
-                  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Misc. tools
-        </a>
-        <div class="dropdown-menu" style="min-width: 200px;">
-          <a class="dropdown-item text-break" href="https://monorail.sariel.pl">Monorail Network Planner</a>
-          <a class="dropdown-item" href="https://town.sariel.pl">Town Plot Planner</a>
-          <a class="dropdown-item" href="https://stats.sariel.pl">Brickshelf Stats</a>
-        </div>
-      </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                           aria-expanded="false">
+                            Thumbnails
+                        </a>
+                        <div class="dropdown-menu" style="min-width: 200px;">
+                            <a class="dropdown-item text-break" href="https://bs.sariel.pl">Bricksafe Thumbnail Helper</a>
+                            <a class="dropdown-item" href="https://thumbs.sariel.pl">Brickshelf Thumbnail Helper</a>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                           aria-expanded="false">
+                            Misc. tools
+                        </a>
+                        <div class="dropdown-menu" style="min-width: 200px;">
+                            <a class="dropdown-item text-break" href="https://monorail.sariel.pl">Monorail Network
+                                Planner</a>
+                            <a class="dropdown-item" href="https://town.sariel.pl">Town Plot Planner</a>
+                            <a class="dropdown-item" href="https://stats.sariel.pl">Brickshelf Stats</a>
+                        </div>
+                    </li>
 
                 </ul>
 

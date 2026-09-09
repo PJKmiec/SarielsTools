@@ -95,6 +95,21 @@
                         </tr>
 
                         <tr>
+                            <td class="text-left align-middle">
+                                <a href="https://mb.sariel.pl"><span class="material-icons align-middle mr-2">developer_board</span> MOCBoard</a>
+                            </td>
+                            <td class="text-left align-middle">
+                                Advanced Kanban board for your projects.
+                            </td>
+                            <td class="align-middle">
+                                N/A
+                            </td>
+                            <td class="align-middle">
+                                <a href="https://mb.sariel.pl">mb.sariel.pl</a>
+                            </td>
+                        </tr>
+
+                        <tr>
                           <td class="text-left align-middle">
                             <a href="https://mocs.sariel.pl"><span class="material-icons align-middle mr-2">list_alt</span> MOC Manager</a>
                           </td>

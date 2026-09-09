@@ -14,6 +14,7 @@ The tools are built on PHP + JS, with Bootstrap Shards used for the front-end. T
 - **Brickshelf Thumbnail Helper** (thumbs.sariel.pl) – available in /bsthumbs. Generates easy-to-use BBCode to include in your post to create a thumbnail gallery from a selected Brickshelf page.
 - **Colors Checker** (colors.sariel.pl) – available in /colorchecker. Checks for shared common colors between up to 6 various LEGO pieces.
 - **Gear Ratio Calculator** (gears.sariel.pl) – available in /ratios. Calculates final ratio of multiple pairs of gears, shows theoretical output for selected motor and lists available gears combinations for a given spacing.
+- **MOCBoard** (mb.sariel.pl) – available in /mb. A complex Kanban board for managing your projects.
 - **MOC Manager** (mocs.sariel.pl) – available in /mocmanager. Allows creating and sorting a detailed list of your projects.
 - **Model Scaler** (scaler.sariel.pl) – available in /scaler. Allows to calculate dimensions of your model from a blueprint of the original object.
 - **Monorail Network Planner** (monorail.sariel.pl) – available in /mnp. Drag & drop tool for designing Monorail track layouts.
